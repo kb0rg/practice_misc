@@ -42,10 +42,18 @@ def score_string(rand_str):
 	1 point for every char correct?
 	"""
 
+	score = 27
+
 	goal_string = "methinks it is like a weasel"
 
 	if rand_str == goal_string:
-		return True
+		return score
+	else:
+		for i in range(0,(len(rand_str) - 1)):
+			if rand_str[i] != goal_string[i]:
+				score -= 1
+		return score
+
 
 def monkey():
 
@@ -70,4 +78,11 @@ def monkey():
 			print "the best string in 1000 tries is: " + best_string
 
 	"""
-	pass
+
+	# quick test score function:
+	curr_string = generate_string()
+	print curr_string
+	curr_score = score_string(curr_string)
+	print curr_score
+
+	
