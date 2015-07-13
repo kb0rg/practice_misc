@@ -35,11 +35,7 @@ def generate_string():
 def score_string(rand_str):
 
 	"""
-	instructions don't say how to score...?
-	I initially thought it should return boolean, but third function clearly
-	wants me to keep track of measurable scores....
-
-	1 point for every char correct?
+	1 point for every char correct -- in any position
 	"""
 
 	score = 27
@@ -57,32 +53,43 @@ def score_string(rand_str):
 
 def monkey():
 
-	"""
-	tries = 0
-	match_goal = False
-	score = 0
-	best_string = ""
 
 	def tries_x1000():
-		while tries <1001 and not match_goal:
+
+		tries = 0
+		match_goal = False
+		score = 0
+		best_string = ""
+
+
+		while tries <1001:
+		# while tries <1001 and match_goal==False:
 			curr_string = generate_string()
 			curr_score = score_string(curr_string)
-			tries += 1
+			# print debug
+			# print "current string: " + curr_string
+			# print "current score: " + str(curr_score)
+
 			if curr_score == 27:
-				print "It's a match!"
-				return
+				break
+				# match_goal = True
 			else:
 				if curr_score > score:
 					score = curr_score
-					best_string = curr_string
-			print "the best string in 1000 tries is: " + best_string
+					best_string = curr_string	
+				tries += 1
+				# print debug
+				# print "current try: " + str(tries)
+			
+		print "the best string in 1000 tries is: " + best_string + \
+			"\n and its score is: " + str(curr_score)
+		# tries = 0
+		tries_x1000()
 
-	"""
+		# print debug
+		print "final string: " + curr_string
+		print "It's a match!"
 
-	# quick test score function:
-	curr_string = generate_string()
-	print curr_string
-	curr_score = score_string(curr_string)
-	print curr_score
+	tries_x1000()
 
-	
+
