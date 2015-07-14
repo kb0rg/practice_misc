@@ -19,11 +19,10 @@ def vector_length(vector):
     yA = vector[0][1]
     yB = vector[1][1]
 
-    a = xA - xB
-    b = yA - yB
-    length = sqrt((a**2 + b**2))
+    # can't figure out how to unpack the coords?
+    # xA, yA, xB, yB = vector
 
-    return length
+    return sqrt(((xA - xB)**2 + (yA - yB)**2))
 
 
 """
@@ -37,7 +36,7 @@ c**2 = (xA − xB)**2 + (yA − yB)**2
 c = sqrt((xA − xB)**2 + (yA − yB))**2
 """
 
-## how to locally run tests included in the kata?
+## is there a way to locally run tests included in the kata?
 # Test.assert_equals(vector_length([[0, 1],[0, 0]]), 1)
 # Test.assert_equals(vector_length([[0, 3],[4, 0]]), 5)
 # Test.assert_equals(vector_length([[1, -1],[1, -1]]), 0)
