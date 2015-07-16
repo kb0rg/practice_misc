@@ -1,9 +1,16 @@
 from pythonds.basic.stack import Stack
 
+"""
+from Problem Solving with Algorithms and Data Structures, 
+Basic Data Structures chapter, Converting Decimal Numbers.. section.
+
+requires installation of pythonds module.
+"""
+
 def baseConverter(decNumber,base):
 
     """
-    converts up to hexidecimal
+    converts decimal number to specified base, up to hexidecimal
     """
 
     digits = "0123456789ABCDEF"

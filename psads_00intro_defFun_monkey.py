@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 import random
+"""
+from Problem Solving with Algorithms and Data Structures, 
+intro chapter, Defining Functions section.
+"""
 
 """
-python function as monkey with a typewriter:
+problem: python function as monkey with a typewriter
 
 How long do you think it would take for a Python function to generate just one 
 sentence of Shakespeare? The sentence we’ll shoot for is:
@@ -26,6 +30,11 @@ print out the best string generated so far and its score every 1000 tries.
 
 def generate_string(str_len):
 
+	"""
+	generates a string that is str_len characters long by choosing random letters 
+	from the 26 letters in the alphabet plus the space.
+	"""
+
 	possible_char_str = "abcdefghijklmnopqrstuvwxyz "
 	rand_str = ""
 
@@ -38,7 +47,8 @@ def generate_string(str_len):
 def score_string(goal_str, test_str):
 
 	"""
-	find percent of matching characters
+	score test string by comparing to the goal string.
+	return percent of matching characters
 	"""
 
 	num_char_match = 0
@@ -50,8 +60,9 @@ def score_string(goal_str, test_str):
 			if test_str[i] == goal_str[i]:
 				num_char_match += 1
 
-	# score is returned as percent
-	return num_char_match / float(len(goal_str))
+	# score is returned as percent, as float to two decimal places
+	score = num_char_match / float(len(goal_str))
+	return float("{0:.2f}".format(score * 100))
 
 
 # print score_string("methinks it is like a weasel", generate_string(28))
@@ -89,7 +100,7 @@ def monkey(goal_str):
 			
 		if match_goal == False:
 			print "the best string in 1000 tries is: " + best_string + "\n" + \
-					"and its score is: " + "{0:.2f}".format(curr_score * 100) + "%"
+					"and its score is: " + str(curr_score) + "%"
 			tries = 0
 			tries_x1000()
 
@@ -102,6 +113,4 @@ def monkey(goal_str):
 	tries_x1000()
 
 monkey("methinks it is like a weasel")
-
-
 
