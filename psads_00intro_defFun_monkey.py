@@ -41,7 +41,6 @@ def generate_string(str_len):
 	while len(rand_str) < (str_len + 1):
 		rand_str = rand_str + random.choice(possible_char_str)
 
-	# print rand_str
 	return rand_str
 
 def score_string(goal_str, test_str):
@@ -65,52 +64,76 @@ def score_string(goal_str, test_str):
 	return float("{0:.2f}".format(score * 100))
 
 
-# print score_string("methinks it is like a weasel", generate_string(28))
+"""
+implementing non-recursive solution as per video on book's site,
+goalstring and goalstring length baked in,
+and tries modified to 1 million.
+not following book's score format.
+"""
+def main():
+
+	goal_str = "methinks it is like a weasel"
+	new_string = generate_string(28)
+	best_score = 0
+	new_score = score_string(goal_str, new_string)
+
+	while new_score < 100:
+		if new_score > best_score:
+			print new_score, new_string
+			best_score = new_score
+		new_string = generate_string(28)
+		new_score = score_string(goal_str, new_string)
+
+main()
+
+"""
+recursive attempt below. exceeds max recursion depth.
+would like to return to this and try to fix it.
+"""
+
+# def monkey(goal_str):
 
 
-def monkey(goal_str):
+# 	def tries_x1000():
+
+# 		tries = 0
+# 		match_goal = False
+# 		best_score = 0
+# 		best_string = ""
 
 
-	def tries_x1000():
+# 		# while tries <1001:
+# 		while tries <1001 and match_goal==False:
+# 			curr_string = generate_string(len(goal_str))
+# 			curr_score = score_string(goal_str, curr_string)
+# 			# print debug
+# 			# print "current string: " + curr_string
+# 			# print "current score: " + str(curr_score)
 
-		tries = 0
-		match_goal = False
-		best_score = 0
-		best_string = ""
-
-
-		# while tries <1001:
-		while tries <1001 and match_goal==False:
-			curr_string = generate_string(len(goal_str))
-			curr_score = score_string(goal_str, curr_string)
-			# print debug
-			# print "current string: " + curr_string
-			# print "current score: " + str(curr_score)
-
-			if curr_score == 100:
-				match_goal = True
-				# break
-			else:
-				if curr_score >= best_score:
-					best_score = curr_score
-					best_string = curr_string	
-				tries += 1
-				# print debug
-				# print "current try: " + str(tries)
+# 			if curr_score == 100:
+# 				match_goal = True
+# 				# break
+# 			else:
+# 				if curr_score >= best_score:
+# 					best_score = curr_score
+# 					best_string = curr_string	
+# 				tries += 1
+# 				# print debug
+# 				# print "current try: " + str(tries)
 			
-		if match_goal == False:
-			print "the best string in 1000 tries is: " + best_string + "\n" + \
-					"and its score is: " + str(curr_score) + "%"
-			tries = 0
-			tries_x1000()
+# 		if match_goal == False:
+# 			print "the best string in 1000 tries is: " + best_string + "\n" + \
+# 					"and its score is: " + str(curr_score) + "%"
+# 			tries = 0
+# 			tries_x1000()
 
-		else:
-			# print debug
-			print "final string: " + curr_string
-			print "It's a match!"
-			return
+# 		else:
+# 			# print debug
+# 			print "final string: " + curr_string
+# 			print "It's a match!"
+# 			return
 
-	tries_x1000()
+# 	tries_x1000()
 
-monkey("methinks it is like a weasel")
+# monkey("methinks it is like a weasel")
 
