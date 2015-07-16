@@ -8,7 +8,7 @@ How long do you think it would take for a Python function to generate just one
 sentence of Shakespeare? The sentence we’ll shoot for is:
 "methinks it is like a weasel"
 
-write a function that generates a string that is 27**** characters long by 
+write a function that generates a string that is 27 characters long by 
 choosing random letters from the 26 letters in the alphabet plus the space.
 
 We’ll write another function that will score each generated string by comparing 
@@ -50,7 +50,9 @@ def score_string(goal_str, test_str):
 			if test_str[i] == goal_str[i]:
 				num_char_match += 1
 
-	return num_char_match / len(goal_str)
+	# score is returned as percent
+	return num_char_match / float(len(goal_str))
+
 
 # print score_string("methinks it is like a weasel", generate_string(28))
 
@@ -66,8 +68,8 @@ def monkey(goal_str):
 		best_string = ""
 
 
-		while tries <1001:
-		# while tries <1001 and match_goal==False:
+		# while tries <1001:
+		while tries <1001 and match_goal==False:
 			curr_string = generate_string(len(goal_str))
 			curr_score = score_string(goal_str, curr_string)
 			# print debug
@@ -76,7 +78,7 @@ def monkey(goal_str):
 
 			if curr_score == 100:
 				match_goal = True
-				break
+				# break
 			else:
 				if curr_score >= best_score:
 					best_score = curr_score
@@ -86,8 +88,8 @@ def monkey(goal_str):
 				# print "current try: " + str(tries)
 			
 		if match_goal == False:
-			print "the best string in 1000 tries is: " + best_string + \
-				"\n and its score is: " + str(curr_score) + "%"
+			print "the best string in 1000 tries is: " + best_string + "\n" + \
+					"and its score is: " + "{0:.2f}".format(curr_score * 100) + "%"
 			tries = 0
 			tries_x1000()
 
