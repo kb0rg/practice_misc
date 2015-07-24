@@ -8,7 +8,7 @@ def mygcd(x,y):
 
 	The inputs x and y are always greater or equal to 1, so the the greatest 
 	common divisor will always be an integer that is also greater or equal to 1.
-		
+	
 	>>> mygcd(30,12)
 	6
 	>>> mygcd(8,9)
@@ -18,12 +18,17 @@ def mygcd(x,y):
 	>>> mygcd(45,15)
 	15
 	>>> mygcd(6,30)
-	6
+	6		
 	>>> mygcd(10927782,6902514)
 	846
 	>>> mygcd(1590771464,1590771620)
 	4
+
 	"""
+
+	# print "first test:"
+	# print "x % y: " + str(x % y)
+	# print "y % x: " + str(y % x)
 
 	#edge cases:
 	if x == 1 or y == 1:
@@ -31,17 +36,36 @@ def mygcd(x,y):
 	if x % y ==0 or y % x == 0:
 		return min([x,y])
 
-	for num in range((max([x,y])/2), 0, -1):
-		# print num
-		# print "x % num: " + str(x % num)
-		# print "y % num: " + str(y % num)
-		if x % num == 0 and y % num ==0:
-			return num
-		# print "NEXT!"
+	lower = min([x,y])
+	i = 2
+	div = (lower/i)
+
+	while div > 0:
+		# print "div: " + str(div)
+		# print "x % div: " + str(x % div)
+		# print "y % div: " + str(y % div)
+		if x % div == 0 and y % div ==0:
+			# print "!!!!! gcd is: " + str(div)
+			return div
+		else:
+			# print "NEXT!"
+			i += 1
+			while lower % i != 0:
+				i+=1
+			div = (lower/i)
+
 
 
 if __name__ == "__main__":
 
+	# mygcd(8,9)
+	# mygcd(10927782,6902514)
+	# mygcd(1590771464,1590771620)
 
     import doctest
     doctest.testmod()
+
+
+
+
+
