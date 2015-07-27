@@ -30,32 +30,76 @@ def mygcd(x,y):
 
     """
 
-    #edge cases:
-    if x == 1 or y == 1:
-        # print "duh. gcd is: 1"
-        return 1
-    if max(x,y) % min(x,y) == 0:
-        # print "ok.  gcd is: " + str(min([x,y]))
-        return min(x,y)
+    """
+    got stuck, looked up answer. mind blown.
+    https://en.wikipedia.org/wiki/Euclidean_algorithm
+    """
 
+    """
+    but I do not grok the mechanics of the solutions. 
+    http://www.codewars.com/kata/greatest-common-divisor/solutions?show-solutions=1
 
-    lower = min(x,y)
-    i = 2
-    div = (lower/i)
+    while y:
+        x,y=y,x%y
+    return x
 
-    while div > 0:
-        # print "div: " + str(div)
-        # print "x % div: " + str(x % div)
-        # print "y % div: " + str(y % div)
-        if x % div == 0 and y % div ==0:
-            # print "!!!!! gcd is: " + str(div)
-            return div
-        else:
-            # print "NEXT!"
-            i += 1
-            while lower % i != 0:
-                i+=1
-            div = (lower/i)
+    or:
+
+    if x%y == 0:
+        return y
+    else:
+        return mygcd(y,x%y)
+
+    """
+
+    # still blowing my mind. adding lots of print statements to see what's happening.
+    while y:
+        print "x, y was: " + str(x) +"," + str(y)
+        print "then magic shit happens."
+        print "like, x%y is: " + str(x%y)
+        x,y=y,x%y
+        print "x, y is now: " + str(x) +"," + str(y)
+        print "keep cycling?"
+    print "x is now the answer: " + str(x)
+    return x
+
+    # #edge cases:
+    # if x == 1 or y == 1:
+    #     # print "duh. gcd is: 1"
+    #     return 1
+    # if max(x,y) % min(x,y) == 0:
+    #     # print "ok.  gcd is: " + str(min([x,y]))
+    #     return min(x,y)
+
+    # """
+    # start testing divisors of the lower number.
+    # iterate in reverse from highest possible divisor of lower, 
+    # ie lower divided by 2, then 3, then 4...
+    # confirm, while iterating, that lower divided by iterator produces a 
+    # whole number, otherwise skip to next iterator.
+    # """
+    # lower = min(x,y)
+    # i = 2
+    # # eliminate any 
+    # if lower % i != 0:
+    #     i+=1
+    # div = (lower/i)
+
+    # while div > 0:
+    #     print "i: " + str(i)
+    #     print "div: " + str(div)
+    #     print "x % div: " + str(x % div)
+    #     print "y % div: " + str(y % div)
+    #     if x % div == 0 and y % div ==0:
+    #         print "!!!!! gcd is: " + str(div)
+    #         return div
+    #     else:
+    #         print "NEXT!"
+    #         i += 1
+    #         # repeating code here. need optimization?
+    #         while lower % i != 0:
+    #             i+=1
+    #         div = (lower/i)
 
 
 if __name__ == "__main__":
@@ -64,8 +108,10 @@ if __name__ == "__main__":
     # mygcd(6,30)
     # mygcd(5000,1)
     # mygcd(10927782,6902514)
-    mygcd(1590771464,1590771620)
+    # mygcd(10927783,6902513)
+    # mygcd(1590771464,1590771620)
     # mygcd(33504,32511)
+    mygcd(156, 23644309756)
 
     # import doctest
     # doctest.testmod()
