@@ -43,47 +43,23 @@ def am_I_afraid(day,num):
 	# }
 
 	"""
-	going to solve it the long way then revisit.
+	the long way, refactored after seeing solutions
 	"""
 
 	if day == "Monday":
-		if num == 12:
-			return True
-		else: 
-			return False
-	elif day == "Tuesday":
-		if num > 95:
-			return True
-		else: 
-			return False
-	elif day == "Wednesday":
-		if num == 34:
-			return True
-		else: 
-			return False
-	elif day == "Thursday":
-		if num == 0:
-			return True
-		else: 
-			return False			
-	elif day == "Friday":
-		if num % 2 == 0:
-			return True
-		else: 
-			return False			
-	elif day == "Saturday":
-		if num == 56:
-			return True
-		else: 
-			return False			
-	elif day == "Sunday":
-		if abs(num) == 666:
-			return True
-		else: 
-			return False			
-	else: 
-		return False
-
+		return num == 12
+	if day == "Tuesday": 
+		return num > 95
+	if day == "Wednesday":
+		return num == 34
+	if day == "Thursday":
+		return num == 0			
+	if day == "Friday":
+		return num % 2 == 0
+	if day == "Saturday":
+		return num == 56
+	if day == "Sunday":
+		return abs(num) == 666
 
 
 if __name__ == "__main__":
