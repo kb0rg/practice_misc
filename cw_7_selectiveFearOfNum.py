@@ -28,38 +28,20 @@ def am_I_afraid(day,num):
 	True
 	"""
 
-	""" first instinct: use dict. 
-	but not sure how to handle values that are conditional
-	(ie rules for Tues and Fri)
+	""" 
+	the dictionary approach, clarified after seeing solutions.
+	didn't know I could use dict like this, with rules 
+	being tested at return statement. very cool.
 	"""
-	# rules_dict = {
-	# "Monday": 12,
-	# "Tuesday": , #--> numbers greater than 95
-	# "Wednesday": 34,
-	# "Thursday": 0,
-	# "Friday": , #--> numbers divisable by 2
-	# "Saturday": 56,
-	# "Sunday": [666, -666]
-	# }
-
-	"""
-	the long way, refactored after seeing solutions
-	"""
-
-	if day == "Monday":
-		return num == 12
-	if day == "Tuesday": 
-		return num > 95
-	if day == "Wednesday":
-		return num == 34
-	if day == "Thursday":
-		return num == 0			
-	if day == "Friday":
-		return num % 2 == 0
-	if day == "Saturday":
-		return num == 56
-	if day == "Sunday":
-		return abs(num) == 666
+	return {
+	"Monday": num == 12,
+	"Tuesday": num > 95,
+	"Wednesday": num == 34,
+	"Thursday": num == 0,
+	"Friday": num % 2 == 0,
+	"Saturday": num == 56,
+	"Sunday": abs(num) == 666
+	}[day]
 
 
 if __name__ == "__main__":
