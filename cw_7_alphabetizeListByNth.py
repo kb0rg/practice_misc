@@ -19,6 +19,12 @@ def sort_it(list_, n):
 	'ball, bell, bill, comma, bull'
 	>>> sort_it('cat, dog, eel, bee', 3)
 	'bee, dog, eel, cat'
+	>>> sort_it('Wolfgang Mittermeyer, Neidhardt Muller, Ernst von Eisenach, Theodor von Lucke, Hildegard von Mariendorf, Adalbert von Fahrenheit, Ernst von Eisenach, Karl Gustav Kempf', 4)
+	'Neidhardt Muller, Hildegard von Mariendorf, Wolfgang Mittermeyer, Adalbert von Fahrenheit, Karl Gustav Kempf, Theodor von Lucke, Ernst von Eisenach, Ernst von Eisenach'
+	>>> sort_it('Adalbert von Fahrenheit, Theodor von Lucke, Ernst von Eisenach, Ernst von Eisenach, August Samuel Wahlen, Paul von Oberstein', 9)
+	'Adalbert von Fahrenheit, Paul von Oberstein, August Samuel Wahlen, Ernst von Eisenach, Ernst von Eisenach, Theodor von Lucke'
+
+
 	"""
 
 	words_list = list_.split(",")
@@ -28,39 +34,20 @@ def sort_it(list_, n):
 	for word in words_list:
 		word = string.lstrip(word)
 		# print word[(n-1):]
-		words_dict[word[(n-1):]] = word
+		words_dict[word[(n-1)]] = words_dict.get(word[(n-1)], []) + [word]
 
 	# print "words_dict: ", words_dict
 
-	sorted_list = [words_dict[x] for x in sorted(words_dict.keys())]
+	# print "sorted(words_dict.keys()): ", sorted(words_dict.keys())
+	sorted_list = [", ".join(words_dict[x]) for x in sorted(words_dict.keys())]
 
+	# print "sorted_list: ", sorted_list
 	return ", ".join(sorted_list)
 
 if __name__ == "__main__":
 
 	import doctest
 	doctest.testmod()
-
-"""
-this worked on the first round of tests. then failed in the second:
-some of the input strings were separated by "," only instead of ", "
-
-also, some tests have duplicates, which will break current structure using dict.
-re-work how values are stored (use list)
-also, keys should poss be the nth char only, not the string slice, to fix issue with
-different strings that have the same nth char:
-currently returns "ties" sorted alphabetically, but looks like, after initial sort, it should return in order passed
-
-eg:
->>> sort_it('Wolfgang Mittermeyer, Neidhardt Muller, Ernst von Eisenach, Theodor von Lucke, Hildegard von Mariendorf, Adalbert von Fahrenheit, Ernst von Eisenach, Karl Gustav Kempf', 4)
-'Hildegard von Mariendorf, Neidhardt Muller, Wolfgang Mittermeyer, Karl Gustav Kempf, Adalbert von Fahrenheit, Theodor von Lucke, Ernst von EisenachErnst von Eisenach' 
-should equal 
-'Neidhardt Muller, Hildegard von Mariendorf, Wolfgang Mittermeyer, Adalbert von Fahrenheit, Karl Gustav Kempf, Theodor von Lucke, Ernst von Eisenach, Ernst von Eisenach'
-
->>> sort_it('Adalbert von Fahrenheit, Theodor von Lucke, Ernst von Eisenach, Ernst von Eisenach, August Samuel Wahlen, Paul von Oberstein', 9)
-'Adalbert von Fahrenheit, Paul von Oberstein, August Samuel Wahlen, Ernst von Eisenach, Ernst von Eisenach, Theodor von Lucke'
-
-"""
 
 
 # print sort_it('bid, zag', 2)
@@ -70,6 +57,10 @@ should equal
 # print sort_it('cat, dog, eel, bee', 3)
 # print "*" * 30
 # print sort_it('bill,bell,ball,bull,comma', 2)
+# print "*" * 30
+# print sort_it('Adalbert von Fahrenheit, Theodor von Lucke, Ernst von Eisenach, Ernst von Eisenach, August Samuel Wahlen, Paul von Oberstein', 9)
+# print "*" * 30
+
 
 
 
