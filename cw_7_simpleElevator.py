@@ -59,18 +59,16 @@ def goto(level, button):
 
 	try:
 		int(button)
+		button = int(button)
+
+		if level < 0 or level > 3 or button < -3 or button > 3:
+			return 0
+		if level > button:
+			return -(level - button)
+		else:
+			return button - level	
 	except ValueError:
 		return 0
-
-	button = int(button)
-
-	if level < 0 or level > 3 or button < -3 or button > 3:
-		return 0
-
-	if level > button:
-		return -(level - button)
-	else:
-		return button - level
 
 
 
