@@ -11,7 +11,7 @@ fix the sortArray function to sort all numbers in ascending order
 """
 
 def sort_array(value):
-    return "".join(sorted(value,key=lambda a: -int(a)))
+    return "".join(sorted(value,key=lambda a: int(a)))
 
 if __name__ == "__main__":
 
