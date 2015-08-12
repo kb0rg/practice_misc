@@ -12,7 +12,7 @@ fix the FilterNumber function to remove all the numbers from the string.
 """
 
 def filter_numbers(string):
-	return "".join(x for x in string if x.isalpha())
+	return "".join(x for x in string if not x.isdigit())
 
 if __name__ == "__main__":
 	import doctest
