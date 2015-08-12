@@ -6,13 +6,13 @@ fix the FilterNumber function to remove all the numbers from the string.
 'abc'
 >>> filter_numbers("aa1bb2cc3dd")
 'aabbccdd'
-
+>>> filter_numbers(" 7CLhuy4CnjRTOJ")
+' CLhuyCnjRTOJ'
 
 """
 
 def filter_numbers(string):
-    return "".join(x for x in string if int(x))
-
+	return "".join(x for x in string if x.isalpha())
 
 if __name__ == "__main__":
 	import doctest
