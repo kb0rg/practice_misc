@@ -5,17 +5,17 @@ Timmy has a List class he has created, this is used for type strict arrays
 When timmy calls the Count property of the list it still remains at 0 when 
 adding items. Also it fails when timmy trys to chain the adds e.g.:
 my_list.add(0).add(1)
-
-my_list=List(str)
   
+>>> my_list=List(str)
 >>> my_list.add('Hello').count
 1
 >>> my_list.add(5)
-"This item is not of type: str"
+'This item is not of type: str'
 >>> my_list.add(' ').add('World!').count
 3
 """
 class List:
+
     def __init__(self,type):
         self.type=type
         self.items=[]
