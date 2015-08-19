@@ -10,7 +10,7 @@ my_list.add(0).add(1)
 >>> my_list.add('Hello').count
 1
 >>> my_list.add(5)
-'This item is not of type: str
+'This item is not of type: str'
 >>> my_list.add(' ').add('World!').count
 3
 """
