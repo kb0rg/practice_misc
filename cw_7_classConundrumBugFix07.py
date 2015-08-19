@@ -27,7 +27,7 @@ class List:
             return "This item is not of type: %s" %(item_type)
         self.items+=[item]
         self.count+=1
-        return item
+        return count
 
 if __name__ == "__main__":
 
