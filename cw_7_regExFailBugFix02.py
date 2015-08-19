@@ -7,7 +7,7 @@ fix regex filter
 'You're awesome! timmy!'
 """
 
-from re import 
+from re import sub
 
 def filter_words(phrase):
     return sub("(bad|mean|ugly|horrible|hideous)","awesome",phrase)
