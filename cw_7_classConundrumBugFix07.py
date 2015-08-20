@@ -25,9 +25,14 @@ class List:
         if type(item)!=self.type:
             item_type="str" if self.type==str else "int" if self.type==int else "float"
             return "This item is not of type: %s" %(item_type)
-        self.items+=[item]
-        self.count+=1
-        return item
+        
+        else:
+            self.items+=[item]
+            self.count+=1
+            return self.items
+
+    def count(self):
+        return self.count
 
 if __name__ == "__main__":
 
