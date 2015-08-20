@@ -29,10 +29,7 @@ class List:
         else:
             self.items+=[item]
             self.count+=1
-            return self.items
-
-    def count(self):
-        return self.count
+            return self
 
 if __name__ == "__main__":
 
