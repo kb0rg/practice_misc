@@ -50,29 +50,31 @@ class Block(object):
 
 	"""
 
-	def __init__(self, width, length, height):
+	def __init__(self, dims_list):
+
+		width, length, height = dims_list
 
 		self.width = width
 		self.length = length
 		self.height = height
 
-	def get_width():
+	def get_width(self):
 		
 		return self.width
 
-	def get_length():
+	def get_length(self):
 
 		return self.length
 
-	def get_height():
+	def get_height(self):
 
 		return self.height
 
-	def get_volume():
+	def get_volume(self):
 
 		return (self.width * self.length * self.height)
 
-	def get_surface_area():
+	def get_surface_area(self):
 
 		if self.width == self.length and self.width == self.height:
 			return 6 * (self.width**2)
