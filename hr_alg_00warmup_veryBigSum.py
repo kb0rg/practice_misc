@@ -1,6 +1,7 @@
 """
-Problem Statement
+hackerrank: algorithms: warmup: very big sum
 
+Problem Statement:
 You are given an array of integers of size N. You need to print the sum of the 
 elements of the array.
 
