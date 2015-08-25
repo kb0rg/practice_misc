@@ -1,7 +1,7 @@
 """
 hackerrank: algorithms: warmup: simple array sum
-Problem Statement
 
+Problem Statement:
 You are given an array of integers of size N. You need to print the sum of the 
 elements of the array.
 
