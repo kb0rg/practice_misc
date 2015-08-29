@@ -57,8 +57,15 @@ def pattern(n):
         pattern_str += "{0}".format(n) * n
         return pattern_str
 
-if __name__ == "__main__":
+"""
+an elegant solution on cw:
+def pattern(n):
+    return '\n'.join(str(i) * i for i in xrange(1, n + 1))
+"""
 
-    import doctest
-    doctest.testmod()
+
+# if __name__ == "__main__":
+
+#     import doctest
+#     doctest.testmod()
 
