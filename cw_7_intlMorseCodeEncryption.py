@@ -47,11 +47,19 @@ def encryption(string):
 
 	morse_string = ""
 
-	for char in string:
-		if not char.isalpha():
-			morse_string += char
+	if len(string) < 1:
+		return morse_string
+
+	for char in string[:-1]:
+		if char.isalpha() or char.isdigit():
+			morse_string += CHAR_TO_MORSE[char] + " "
 		else:
-			morse_string += CHAR_TO_MORSE[char]
+			morse_string += char + " "
+
+	if string[-1].isalpha() or string[-1].isdigit():
+		morse_string += CHAR_TO_MORSE[string[-1]]
+	else:
+		morse_string += string[-1]
 
 	return morse_string
 
