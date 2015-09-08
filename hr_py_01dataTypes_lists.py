@@ -112,34 +112,66 @@ Sample Output:
 
 """
 
-def execute_cmd(input_list, command_str, ints_list):
+# def execute_cmd(input_list, command_str, ints_list):
 
-	cmds_dict = { "append": append(), "insert" : insert(), 
-		"remove": remove(), "pop": pop(), "index": index(),
-		"count": count(), "sort": sort(), "reverse": reverse()}
+# 	cmds_dict = { "append": append(), "insert" : insert(), 
+# 		"remove": remove(), "pop": pop(), "index": index(),
+# 		"count": count(), "sort": sort(), "reverse": reverse()}
 
-	if len(ints_list) < 1:
-		input_list.cmds_dict[command_str]
-	else:
-		for i in range(len(ints_list)):
-			input_list.cmds_dict[command_str(ints_list[i])]
+# 	if len(ints_list) < 1:
+# 		input_list.cmds_dict[command_str]
+# 	else:
+# 		for i in range(len(ints_list)):
+# 			input_list.cmds_dict[command_str(ints_list[i])]
 
 
 
-n = int(raw_input())
+# n = int(raw_input())
+# L = []
+# for line in range(n):
+# 	line_list = raw_input().split()
+# 	cmd = line_list[0]
+# 	if len(line_list) > 1:
+# 		list_args = [int(x) for x in line_list[1:]]
+# 	execute_cmd(L, cmd, list_args)
+
+"""
+stuck on how to deal with getting the args into the function call.
+looked on HR discussion board, found one obvious solution (directly below)
+and several solutions I may not have found on my own (using getattr)
+"""
+
+# T = int(raw_input().strip())
+
+# L = []
+# for t in range(T):
+#     args = raw_input().strip().split(" ")
+#     if args[0] == "append":
+#         L.append(int(args[1]))
+#     elif args[0] == "insert":
+#         L.insert(int(args[1]), int(args[2]))
+#     elif args[0] == "remove":
+#         L.remove(int(args[1]))
+#     elif args[0] == "pop":
+#         L.pop()
+#     elif args[0] == "sort":
+#         L.sort()
+#     elif args[0] == "reverse":
+#         L.reverse()
+#     elif args[0] == "print":
+#         print L
+
+T = int(raw_input().strip())
 L = []
-for line in range(n):
-	line_list = raw_input().split()
-	cmd = line_list[0]
-	if len(line_list) > 1:
-		list_args = [int(x) for x in line_list[1:]]
-	execute_cmd(L, cmd, list_args)
-
-"""
-  File "solution.py", line 3, in execute_cmd
-    cmds_dict = { "append": append(), "insert" : insert(), 
-NameError: global name 'append' is not defined
-"""
-
+for t in range(T):
+    args = raw_input().strip().split(" ")
+    if args[0] == "print":
+        print L
+    elif len(args) == 3:
+        getattr(L, args[0])(int(args[1]), int(args[2]))
+    elif len(args) == 2:
+        getattr(L, args[0])(int(args[1]))
+    else:
+        getattr(L, args[0])()
 
 
