@@ -58,16 +58,18 @@ In the 4th line 2<3, so 3 is placed at position 2.
 #!/bin/python
 def insertionSort(input_array):
     num = input_array[-1]
-    for i in range(m-1, 0, -1):
-        if input_array[i-1] > num:
-            input_array[i] = input_array[i-1]
+    for i in range(m-2, -1, -1):
+        if input_array[i] > num:
+            input_array[i+1] = input_array[i]
+            if i == 0:
+                input_array[i] = num
             print " ".join(str(x) for x in input_array)
         else:
-            input_array[i] = num
+            input_array[i+1] = num
             print " ".join(str(x) for x in input_array)
             break
-    input_array[0] = num
-    print " ".join(str(x) for x in input_array)
+
+    #input_array[0] = num
     return ""
 
 m = input()
@@ -75,7 +77,7 @@ ar = [int(i) for i in raw_input().strip().split()]
 insertionSort(ar)
 
 """
-passes test case #2:
+fails test case #2:
 
 input:
 10
@@ -90,10 +92,21 @@ output expected:
 2 3 4 5 5 6 7 8 9 10
 2 3 4 4 5 6 7 8 9 10
 2 3 3 4 5 6 7 8 9 10
-2 2 3 4 5 6 7 8 9 10
+2 2 3 4 5 6 7 8 9 10 # missing this line
 1 2 3 4 5 6 7 8 9 10
 
-fails 0, 1, 3
+actual output:
+2 3 4 5 6 7 8 9 10 10
+2 3 4 5 6 7 8 9 9 10
+2 3 4 5 6 7 8 8 9 10
+2 3 4 5 6 7 7 8 9 10
+2 3 4 5 6 6 7 8 9 10
+2 3 4 5 5 6 7 8 9 10
+2 3 4 4 5 6 7 8 9 10
+2 3 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+
+passes 0, 1, 3
 
 test case #0:
 
@@ -109,7 +122,8 @@ output expected:
 2 4 4 6 8
 2 3 4 6 8
 
-actual output:2 4 6 8 8
+actual output:
+2 4 6 8 8
 2 4 6 6 8
 2 4 4 6 8
 2 3 4 6 8
