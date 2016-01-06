@@ -58,7 +58,7 @@ In the 4th line 2<3, so 3 is placed at position 2.
 #!/bin/python
 def insertionSort(input_array):
     num = input_array[-1]
-    for i in range(m-1, -1, -1):
+    for i in range(m-1, 0, -1):
         if input_array[i-1] > num:
             input_array[i] = input_array[i-1]
             print " ".join(str(x) for x in input_array)
@@ -66,6 +66,8 @@ def insertionSort(input_array):
             input_array[i] = num
             print " ".join(str(x) for x in input_array)
             break
+    input_array[0] = num
+    print " ".join(str(x) for x in input_array)
     return ""
 
 m = input()
@@ -73,7 +75,7 @@ ar = [int(i) for i in raw_input().strip().split()]
 insertionSort(ar)
 
 """
-fails test case #2:
+passes test case #2:
 
 input:
 10
@@ -91,6 +93,27 @@ output expected:
 2 2 3 4 5 6 7 8 9 10
 1 2 3 4 5 6 7 8 9 10
 
+fails 0, 1, 3
+
+test case #0:
+
+input:
+
+5
+2 4 6 8 3
+
+output expected:
+
+2 4 6 8 8
+2 4 6 6 8
+2 4 4 6 8
+2 3 4 6 8
+
+actual output:2 4 6 8 8
+2 4 6 6 8
+2 4 4 6 8
+2 3 4 6 8
+3 3 4 6 8
 """
 
 
