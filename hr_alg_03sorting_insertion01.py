@@ -1,3 +1,6 @@
+#!/bin/python
+# -*- coding: utf-8 -*-
+
 """
 hackerrank: algorithms: sorting: insertion sort pt 1
 
@@ -62,12 +65,14 @@ def insertionSort(input_array):
         if input_array[i] > num:
             input_array[i+1] = input_array[i]
             if i == 0:
+            	print " ".join(str(x) for x in input_array)
                 input_array[i] = num
             print " ".join(str(x) for x in input_array)
         else:
             input_array[i+1] = num
             print " ".join(str(x) for x in input_array)
             break
+
 
     #input_array[0] = num
     return ""
@@ -129,5 +134,3 @@ actual output:
 2 3 4 6 8
 3 3 4 6 8
 """
-
-
