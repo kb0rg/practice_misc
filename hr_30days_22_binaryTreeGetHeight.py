@@ -66,7 +66,9 @@ class Solution:
 
     def getHeight(self,root):
         ### end given by HR
-
+        if root == None:
+            return 0
+        return 1 + max(self.getHeight(root.left), self.getHeight(root.right))
 
 # given by HR:
 T=int(raw_input())
@@ -78,3 +80,9 @@ for i in range(T):
 height=myTree.getHeight(root)
 print height  
 
+"""
+note:
+- forum discussion points out that tree height is generally defined as the 
+number of *edges* in height, not nodes, therefore this problem's expected output 
+is not technically correct.
+"""

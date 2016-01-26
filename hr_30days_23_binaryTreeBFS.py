@@ -75,7 +75,22 @@ class Solution:
 
     def levelOrder(self,root):
         ### end given by HR
-
+        import Queue
+        q = Queue.Queue()
+         
+        q.put(root)
+        
+        while not q.empty():
+            curr = q.get()
+            print curr.data,
+            if curr.left:
+                q.put(curr.left)
+                if curr.right:
+                    q.put(curr.right)
+                curr = curr.left
+            elif curr.right:
+                q.put(curr.right)
+                curr = curr.right
 
 # given by HR:
 T=int(raw_input())
