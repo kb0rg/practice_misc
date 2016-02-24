@@ -41,7 +41,7 @@ def decode_str(str):
     return cracked_str
 
 text = "g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dmp. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr'q ufw rfgq rcvr gq qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc spj."
-print decode_str(text)
+# print decode_str(text)
 
 """
 output:
@@ -49,4 +49,13 @@ i hope you didnt translate it by hand. thats what computers are for. doing it in
 by hand is inefficient and that's why this text is so long. using 
 string.maketrans() is recommended. now apply on the url.
 
+note:
+I'll have to play with maketrans, have never seen it before.
+in the meantime, using the function I already built to get to the next challenge
+
 """
+
+
+print decode_str('map')
+# output: ocr
+# http://www.pythonchallenge.com/pc/def/ocr.html
