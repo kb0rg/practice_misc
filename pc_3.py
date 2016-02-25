@@ -64,20 +64,7 @@ pprint(candles(f))
 """
 the output string is "linkedlist"
 
-http://www.pythonchallenge.com/pc/def/linkedlist.html
-returns a page blank except for the text "linkedlist.php"
-tried:
+site back up. cleared cache, tried again:
 http://www.pythonchallenge.com/pc/def/linkedlist.php
-but it autcorrected to .html
-tried:
-http://www.pythonchallenge.com/pc/def/l.html
-(just the "head" of the linked list) and got:
-yes. but there are more.
-
-thought maybe it needed the data and next of the head node
-so go index of next node, tried:
-http://www.pythonchallenge.com/pc/def/l15214.html
-didn't work.
-
-then site went down and all tries timed out.
+works!
 """
