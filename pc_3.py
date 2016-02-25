@@ -50,8 +50,26 @@ def candles(text_file):
                         if i + 7 == len(text) or text[i+7].islower():
                             part_matches.append(text[i:i+7])
         i+=1
-    return part_matches
-    # return "Nope"
+
+    url_string = "" 
+
+    for item in part_matches:
+        url_string = url_string + item[3]
+
+    return url_string
 
 f = "pc_3.txt"
 pprint(candles(f))
+
+"""
+the output string is "linkedlist"
+
+http://www.pythonchallenge.com/pc/def/linkedlist.html
+returns a page blank except for the text "linkedlist.php"
+
+tried
+http://www.pythonchallenge.com/pc/def/l.html
+(just the "head" of the linked list) and got:
+yes. but there are more.
+
+"""
