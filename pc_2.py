@@ -60,9 +60,13 @@ output:
  '{': 6046,
  '}': 6105}
 
-ok. round the rare charaters. but in what order should they be typed?
+ok. found the rare charaters. but in what order should they be typed?
 "aeilqtuy" -- order of output above -- didn't work.
 since dictionaries are unordered, output is not sequential. 
 another data type?
 
+got the solution by visually puzzling out anagram:
+http://www.pythonchallenge.com/pc/def/equality.html
+
+still want to revisit how to get it programatically.
 """
