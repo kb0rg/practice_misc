@@ -48,14 +48,14 @@ def candles(text_file):
                 if text[i+4: i+7].isupper():
                     if i == 0 or text[i-1].islower():
                         if i + 7 == len(text) or text[i+7].islower():
-                            part_matches.append(text[i:i+7])
+                            part_matches.append((text[i:i+7], i+3))
         i+=1
 
     url_string = "" 
 
     for item in part_matches:
-        url_string = url_string + item[3]
-
+        url_string = url_string + item[0][3]
+    print part_matches[1][1]
     return url_string
 
 f = "pc_3.txt"
@@ -66,10 +66,18 @@ the output string is "linkedlist"
 
 http://www.pythonchallenge.com/pc/def/linkedlist.html
 returns a page blank except for the text "linkedlist.php"
-
-tried
+tried:
+http://www.pythonchallenge.com/pc/def/linkedlist.php
+but it autcorrected to .html
+tried:
 http://www.pythonchallenge.com/pc/def/l.html
 (just the "head" of the linked list) and got:
 yes. but there are more.
 
+thought maybe it needed the data and next of the head node
+so go index of next node, tried:
+http://www.pythonchallenge.com/pc/def/l15214.html
+didn't work.
+
+then site went down and all tries timed out.
 """
