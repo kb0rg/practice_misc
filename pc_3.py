@@ -27,18 +27,19 @@ how are returns treated? is each line distinct or does pattern wrap?
 
 """
 
+def candles(text_file):
+    for line in text_file:
+        line = line.rstrip("\n")
+        i = 0
+        while i < (len(line) - 8): # check to last poss occur of 1st char in pattern
+            if not line[i].islower():
+                i += 1
+            else: 
+                if line[i:i+4].isupper():
+                    if line[i+4].islower() or line[i+4] == "\n":
+                        return line[i:i+9]
+                i+=1
+    return "Nope"
+
 f = open("pc_3.txt")
-
-for line in f:
-    i = 0
-    while i < (len(line) - 8): # check to last poss occur of 1st char in pattern
-        if not line[i].islower():
-            i += 1
-        else: 
-            if line[i:i+4].isupper():
-                
-            i+=1
-print all_lowers
-
-
-
+print candles(f)
