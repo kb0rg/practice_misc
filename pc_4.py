@@ -55,9 +55,13 @@ def chainsaw():
         html = response.read()
         # grab numbers out of html body
         num = ''.join([str(i) for i in html.split() if i.isdigit()])
-        num_dict[num] = num_dict.get(num, 0) + 1
+        if num in num_dict:
+            break
+        else:
+            num_dict[num] = num_dict.get(num, 1)
+
     
-    return num_dict
+    return new_url
 
 pprint(chainsaw())
 
@@ -73,5 +77,18 @@ creating a dict to see what is going on. is the list circular?
 there are several numbers that appear only once, and some twice.
 there are also a couple of empty results.
 
+running until a duplicated num occurs returns (the empty num/ break!):
+http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=
+which gives:
+and the next nothing is 6711
+
+...
+try the num before the break?
+http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=66831
+give:
+peak.html
+
+yes!!
+http://www.pythonchallenge.com/pc/def/peak.html
 """
 
