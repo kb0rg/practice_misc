@@ -17,9 +17,7 @@ note:
 sounds like... pickle
 
 approach:
-look into pickle module.
-look for something to unpickle
-try:
+unpickle
 <peakhell src="banner.p"/>
 
 questions:
@@ -33,24 +31,30 @@ from pprint import pprint
 def peak_hill():
 
     fileObject = open('pc_5_banner.p', 'r')
-    # fileObject = open('pc_5_peakhell.jpg', 'r')
     peakhell = pickle.load(fileObject)
-
-    # pprint(peakhell)
     
-    # peakhell is a list of lists of tuples. 
-    # looks like most sum 95. see if there are any that don't?
-    count = 0
-    sub_count_str = ''
+    hash_count = 0
+    no_hash_count = 0
+    # sub_count_str = ''
     for peak in peakhell:
-        sub_count = 0
+        hash_sub_count = 0
+        no_hash_sub_count = 0
         for duo in peak:
-            sub_count += duo[1]
-        count += sub_count
-        sub_count_str = sub_count_str + str(sub_count)
+            if duo[0] == "#":
+                hash_sub_count += duo[1]
+            else:
+                no_hash_sub_count += duo[1]
+
+        print "hash_sub_count", hash_sub_count
+        print "no_hash_sub_count", no_hash_sub_count
+
+        hash_count += hash_sub_count
+        no_hash_count += no_hash_sub_count
+        # sub_count_str = sub_count_str + str(sub_count)
         
-    print sub_count_str
-    print count
+    # print sub_count_str
+    print "hash_count", hash_count
+    print "no_hash_count", no_hash_count
 
 peak_hill()
 
@@ -65,11 +69,11 @@ first and last list are: [(' ', 95)]
 the sum of all intergers in each list is 95.
 are the hash signs significant?
 
-should I add all the 95s?
-http://www.pythonchallenge.com/pc/def/2185.html 
-nope.
+sum of all ints in tuples with hash signs: 661
+http://www.pythonchallenge.com/pc/def/661.html
+nope
 
-should I cat all the 95s?
-http://www.pythonchallenge.com/pc/def/9595959595959595959595959595959595959595959595.html
-nope.
+sum of all ints in tuples with NO hash signs: 1524
+http://www.pythonchallenge.com/pc/def/1524.html
+nope
 """
