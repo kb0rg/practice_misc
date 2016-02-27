@@ -24,17 +24,29 @@ try:
 
 questions:
 what to do with the results of the unpickle?
-or is there something else I need to unpickle? 
+or is there something else I need to unpickle?
 
 """
 import pickle
 from pprint import pprint
 
-fileObject = open('pc_5_banner.p', 'r')
-# fileObject = open('pc_5_peakhell.jpg', 'r')
-peakhell = pickle.load(fileObject)
+def peak_hill():
 
-pprint(peakhell)
+    fileObject = open('pc_5_banner.p', 'r')
+    # fileObject = open('pc_5_peakhell.jpg', 'r')
+    peakhell = pickle.load(fileObject)
+
+    # pprint(peakhell)
+    
+    # peakhell is a list of lists of tuples. 
+    # looks like most sum 95. see if there are any that don't?
+    for peak in peakhell:
+        sub_count = 0
+        for duo in peak:
+            sub_count += duo[1]
+        print sub_count
+
+print peak_hill()
 
 """
 result:
@@ -44,9 +56,9 @@ the alternates have an empty string in index 0.
 
 first and last list are: [(' ', 95)]
 
-other than that not seeing a clear pattern. the sublists contain varying 
-numbers of tuples. I'm sure there's something I'm not seeing yet.
-
-tried unpickling the hill image but got KeyError
+the sum of all intergers in each list is 95.
+are the hash signs significant?
+should I add all the 95s?
+should I cat all the 95s?
 
 """
