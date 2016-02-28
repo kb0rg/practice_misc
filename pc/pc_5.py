@@ -22,27 +22,30 @@ unpickle
 
 questions:
 what to do with the results of the unpickle?
-or is there something else I need to unpickle?
 
 """
 import pickle
 from pprint import pprint
+import urllib2
+# import matplotlib.pyplot as plt
+# import numpy as np
 
 def peak_hill():
 
-    fileObject = open('pc_5_banner.p', 'r')
+    fileObject = open('pc_5_banner.p', 'rb')
     peakhell = pickle.load(fileObject)
-    
-    times_count = 0
-    tuples_count = 0
 
-    for peak in peakhell:
-        times_count += 1
-        for duo in peak:
-            tuples_count += 1
+    # do I need to re-pickle it for some reason? 
+    # re_peakhell = open('temp_pc_5.pkl', 'wb')
+    ## maybe as ascii?
+    # re_peakhell = open('temp_pc_5.pkl', 'wa')
+    # pickle.dump(peakhell, re_peakhell)
+    # re_peakhell.close()
 
-    print "times_count", times_count
-    print "tuples_count", tuples_count
+    url = 'http://www.pythonchallenge.com/pc/def/banner.p'
+    data = pickle.loads(urllib2.urlopen(url).read())
+    for line in data:
+        print ''.join(elmt[0] * elmt[1] for elmt in line)
 
 peak_hill()
 
@@ -52,34 +55,14 @@ a long list of lists. of tuples. each tuple has an int in index 1.
 every other tuple containing a hash sign in index 0, and
 the alternates have an empty string in index 0.
 
-first and last list are: [(' ', 95)]
 
-the sum of all intergers in each list is 95.
-are the hash signs significant?
+## 
 
-sum of all ints in tuples with hash signs: 661
-http://www.pythonchallenge.com/pc/def/661.html
-nope
+tried to modify a coulple matplotlib examples fr stack overflow
+but kept getting errors I couldn't sort out (UserWarning: Dulpicate key in file 
+"..../.matplotlib/matplotlibrc", line #2)
 
-sum of all ints in tuples with NO hash signs: 1524
-http://www.pythonchallenge.com/pc/def/1524.html
-nope
-
-1524-661 = 863
-http://www.pythonchallenge.com/pc/def/863.html
-nope
-
-hmmmm. 
-how many tuples are there?
-348
-http://www.pythonchallenge.com/pc/def/348.html
-nope
-
-how many 95's are there?
-23
-http://www.pythonchallenge.com/pc/def/2395.html
-nope
-
+need to learn matplotlib.
 
 """
 
