@@ -33,28 +33,16 @@ def peak_hill():
     fileObject = open('pc_5_banner.p', 'r')
     peakhell = pickle.load(fileObject)
     
-    hash_count = 0
-    no_hash_count = 0
-    # sub_count_str = ''
+    times_count = 0
+    tuples_count = 0
+
     for peak in peakhell:
-        hash_sub_count = 0
-        no_hash_sub_count = 0
+        times_count += 1
         for duo in peak:
-            if duo[0] == "#":
-                hash_sub_count += duo[1]
-            else:
-                no_hash_sub_count += duo[1]
+            tuples_count += 1
 
-        print "hash_sub_count", hash_sub_count
-        print "no_hash_sub_count", no_hash_sub_count
-
-        hash_count += hash_sub_count
-        no_hash_count += no_hash_sub_count
-        # sub_count_str = sub_count_str + str(sub_count)
-        
-    # print sub_count_str
-    print "hash_count", hash_count
-    print "no_hash_count", no_hash_count
+    print "times_count", times_count
+    print "tuples_count", tuples_count
 
 peak_hill()
 
@@ -76,4 +64,22 @@ nope
 sum of all ints in tuples with NO hash signs: 1524
 http://www.pythonchallenge.com/pc/def/1524.html
 nope
+
+1524-661 = 863
+http://www.pythonchallenge.com/pc/def/863.html
+nope
+
+hmmmm. 
+how many tuples are there?
+348
+http://www.pythonchallenge.com/pc/def/348.html
+nope
+
+how many 95's are there?
+23
+http://www.pythonchallenge.com/pc/def/2395.html
+nope
+
+
 """
+
