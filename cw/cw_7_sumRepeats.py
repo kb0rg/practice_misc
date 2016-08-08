@@ -14,8 +14,9 @@ def repeat_sum(list_of_lists):
 	list_sets = [set(l) for l in list_of_lists]
 	repeats = set()
 	for i in range(len(list_sets)-1):
-		list_sets[i].intersection(list_sets[i+1])
-
+		repeats.update(list_sets[i].intersection(list_sets[i+1]))
+	if len(list_sets) > 2:
+		repeats.update(list_sets[0].intersection(list_sets[-1]))
 	return sum(repeats)
 
 class TestPrintRepeatSum(unittest.TestCase):
