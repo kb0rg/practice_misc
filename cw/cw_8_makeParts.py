@@ -12,7 +12,7 @@ import unittest
 
 def makeParts(arr, chunkSize):
 
-    return [arr[x:x+chunkSize] for x in range(0, (len(arr)+1), chunkSize)]
+    return [arr[x:x+chunkSize] for x in range(0, len(arr), chunkSize)]
 
 class TestOrder(unittest.TestCase):
     def test_base_case01(self):
