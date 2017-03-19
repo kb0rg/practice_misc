@@ -14,7 +14,20 @@ E.g:
 import unittest
 
 def vowel_2_index(input_string):
-    pass
+    #NOTE index begins at 1
+    if len(input_string)==0:
+      return ''
+
+    vowels = {x:True for x in ['a','e','i','o','u']}
+
+    ret = []
+    for i in xrange(len(input_string)):
+        if str(input_string[i]).lower() in vowels:
+            ret.append(str(i+1))
+        else:
+            ret.append(input_string[i])
+    return ''.join(ret)
+
 
 class TestPrintRepeatSum(unittest.TestCase):
     def test_base_case01(self):
