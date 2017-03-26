@@ -20,18 +20,22 @@ import unittest
 import re
 
 def order(sentence):
-  sent_list = sentence.split()
-  reorder = ['foo'] * (len(sent_list)+1)
-  for word in sent_list:
-      i = int(re.search(r'\d+', word).group())
-      reorder[i] = word
+    sent_list = sentence.split()
+    reorder = ['foo'] * (len(sent_list)+1)
+    for word in sent_list:
+        i = int(re.search(r'\d+', word).group())
+        reorder[i] = word
 
-  return ' '.join(reorder[1:])
+    return ' '.join(reorder[1:])
 
 class TestOrder(unittest.TestCase):
     def test_base_case(self):
         input_str = "is2 Thi1s T4est 3a"
         self.assertEqual(order(input_str), "Thi1s is2 3a T4est")
+
+    def test_base_case02(self):
+        input_str = "Fo1r the2 4of g3ood th5e pe6ople"
+        self.assertEqual(order(input_str), "Fo1r the2 g3ood 4of th5e pe6ople")
 
 if __name__ == "__main__":
 
