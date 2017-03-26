@@ -20,13 +20,12 @@ import unittest
 import re
 
 def order(sentence):
-    sent_list = sentence.split()
-    reorder = ['foo'] * (len(sent_list)+1)
-    for word in sent_list:
-        i = int(re.search(r'\d+', word).group())
-        reorder[i] = word
 
-    return ' '.join(reorder[1:])
+    return ' '.join(
+        sorted(
+            sentence.split(),
+            key=lambda w: int(re.search(r'\d+', w).group()))
+        )
 
 class TestOrder(unittest.TestCase):
     def test_base_case(self):
