@@ -17,9 +17,16 @@ For an input: "is2 Thi1s T4est 3a" the function should return:
 """
 
 import unittest
+import re
 
 def order(sentence):
-  pass
+  sent_list = sentence.split()
+  reorder = ['foo'] * (len(sent_list)+1)
+  for word in sent_list:
+      i = int(re.search(r'\d+', word).group())
+      reorder[i] = word
+
+  return ' '.join(reorder[1:])
 
 class TestOrder(unittest.TestCase):
     def test_base_case(self):
