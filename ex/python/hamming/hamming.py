@@ -4,8 +4,4 @@ def distance(strand_a, strand_b):
     if strand_a == strand_b:
         return 0
 
-    dist = 0
-    for i in range(len(strand_a)):
-        if not strand_a[i] == strand_b[i]:
-            dist += 1
-    return dist
+    return sum(map(lambda x,y: x!=y, strand_a, strand_b))
