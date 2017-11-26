@@ -1,2 +1,4 @@
 pythonds/*
 temp_*
+__pycache__
+*.pyc
