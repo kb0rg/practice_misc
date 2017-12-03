@@ -6,10 +6,11 @@ def hey(phrase):
     anything.
     He answers 'Whatever.' to anything else.
     """
-    if not phrase:
+    phr = phrase.strip()
+    if not phr:
         return 'Fine. Be that way!'
-    if phrase.upper() == phrase:
+    if phr.upper() == phr:
         return 'Whoa, chill out!'
-    if phrase.endswith('?'):
+    if phr.endswith('?'):
         return 'Sure.'
     return 'Whatever.'

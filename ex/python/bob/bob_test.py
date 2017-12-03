@@ -69,11 +69,11 @@ class BobTests(unittest.TestCase):
     def test_silence(self):
         self.assertEqual(bob.hey(""), "Fine. Be that way!")
 
-    # def test_prolonged_silence(self):
-    #     self.assertEqual(bob.hey("          "), "Fine. Be that way!")
+    def test_prolonged_silence(self):
+        self.assertEqual(bob.hey("          "), "Fine. Be that way!")
 
-    # def test_alternate_silence(self):
-    #     self.assertEqual(bob.hey("\t\t\t\t\t\t\t\t\t\t"), "Fine. Be that way!")
+    def test_alternate_silence(self):
+        self.assertEqual(bob.hey("\t\t\t\t\t\t\t\t\t\t"), "Fine. Be that way!")
 
     def test_multiple_line_question(self):
         self.assertEqual(
@@ -83,12 +83,12 @@ class BobTests(unittest.TestCase):
     def test_starting_with_whitespace(self):
         self.assertEqual(bob.hey("         hmmmmmmm..."), "Whatever.")
 
-    # def test_ending_with_whitespace(self):
-    #     self.assertEqual(
-    #         bob.hey("Okay if like my  spacebar  quite a bit?   "), "Sure.")
+    def test_ending_with_whitespace(self):
+        self.assertEqual(
+            bob.hey("Okay if like my  spacebar  quite a bit?   "), "Sure.")
 
-    # def test_other_whitespace(self):
-    #     self.assertEqual(bob.hey("\n\r \t"), "Fine. Be that way!")
+    def test_other_whitespace(self):
+        self.assertEqual(bob.hey("\n\r \t"), "Fine. Be that way!")
 
     def test_non_question_ending_with_whitespace(self):
         self.assertEqual(
