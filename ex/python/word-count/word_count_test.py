@@ -23,17 +23,17 @@ class WordCountTests(unittest.TestCase):
             {'one': 1, 'fish': 4, 'two': 1, 'red': 1, 'blue': 1}
         )
 
-    # def test_cramped_list(self):
-    #     self.assertEqual(
-    #         word_count('one,two,three'),
-    #         {'one': 1, 'two': 1, 'three': 1}
-    #     )
+    def test_cramped_list(self):
+        self.assertEqual(
+            word_count('one,two,three'),
+            {'one': 1, 'two': 1, 'three': 1}
+        )
 
-    # def test_expanded_list(self):
-    #     self.assertEqual(
-    #         word_count('one,\ntwo,\nthree'),
-    #         {'one': 1, 'two': 1, 'three': 1}
-    #     )
+    def test_expanded_list(self):
+        self.assertEqual(
+            word_count('one,\ntwo,\nthree'),
+            {'one': 1, 'two': 1, 'three': 1}
+        )
 
     # def test_ignores_punctuation(self):
     #     self.assertEqual(
@@ -53,11 +53,11 @@ class WordCountTests(unittest.TestCase):
             {'go': 3, 'stop': 2}
         )
 
-    # def test_apostrophes(self):
-    #     self.assertEqual(
-    #         word_count("First: don't laugh. Then: don't cry."),
-    #         {'first': 1, "don't": 2, 'laugh': 1, 'then': 1, 'cry': 1}
-    #     )
+    def test_apostrophes(self):
+        self.assertEqual(
+            word_count("First: don't laugh. Then: don't cry."),
+            {'first': 1, "don't": 2, 'laugh': 1, 'then': 1, 'cry': 1}
+        )
 
     # def test_quotations(self):
     #     self.assertEqual(
@@ -90,11 +90,11 @@ class WordCountTests(unittest.TestCase):
              'want': 1, 'your': 1, 'bad': 1, 'romance': 1}
         )
 
-    # def test_non_alphanumeric(self):
-    #     self.assertEqual(
-    #         word_count('hey,my_spacebar_is_broken.'),
-    #         {'hey': 1, 'my': 1, 'spacebar': 1, 'is': 1, 'broken': 1}
-    #     )
+    def test_non_alphanumeric(self):
+        self.assertEqual(
+            word_count('hey,my_spacebar_is_broken.'),
+            {'hey': 1, 'my': 1, 'spacebar': 1, 'is': 1, 'broken': 1}
+        )
 
 
 if __name__ == '__main__':

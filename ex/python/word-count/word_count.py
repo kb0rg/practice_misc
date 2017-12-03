@@ -1,6 +1,8 @@
+import re
+
 def word_count(phrase):
     counts = {}
-    for word in phrase.split():
-        w = word.lower()
-        counts[w] = counts.get(w, 0) + 1
+    for word in re.split('[_\.:,\s]+', phrase.lower()):
+        if word:
+            counts[word] = counts.get(word, 0) + 1
     return counts
