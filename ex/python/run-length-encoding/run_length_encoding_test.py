@@ -35,10 +35,10 @@ class WordCountTests(unittest.TestCase):
     def test_decode_string_with_no_single_characters(self):
         self.assertMultiLineEqual(decode('2A3B4C'), 'AABBBCCCC')
 
-    # def test_decode_single_characters_with_repeated_characters(self):
-    #     self.assertMultiLineEqual(
-    #         decode('12WB12W3B24WB'),
-    #         'WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB')
+    def test_decode_single_characters_with_repeated_characters(self):
+        self.assertMultiLineEqual(
+            decode('12WB12W3B24WB'),
+            'WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB')
 
     def test_decode_multiple_whitespace_mixed_in_string(self):
         self.assertMultiLineEqual(decode('2 hs2q q2w2 '), '  hsqq qww  ')

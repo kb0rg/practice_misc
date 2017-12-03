@@ -3,14 +3,18 @@ def decode(in_str):
         return in_str
 
     out_str = []
-    count = 1
+    count = []
 
     for char in in_str:
-        if not char.isalpha():
-            count = int(char)
+        if char.isnumeric():
+            count.append(char)
         else:
-            out_str.extend([char] * count)
-            count = 1
+            if not count:
+                mult = 1
+            else:
+                mult = int(''.join(count))
+            out_str.extend([char] * mult)
+            count = []
     return ''.join(out_str)
 
 def encode(in_str):
