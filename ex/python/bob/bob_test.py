@@ -41,11 +41,11 @@ class BobTests(unittest.TestCase):
     def test_shouting_numbers(self):
         self.assertEqual(bob.hey("1, 2, 3 GO!"), "Whoa, chill out!")
 
-    # def test_only_numbers(self):
-    #     self.assertEqual(bob.hey("1, 2, 3"), "Whatever.")
+    def test_only_numbers(self):
+        self.assertEqual(bob.hey("1, 2, 3"), "Whatever.")
 
-    # def test_question_with_only_numbers(self):
-    #     self.assertEqual(bob.hey("4?"), "Sure.")
+    def test_question_with_only_numbers(self):
+        self.assertEqual(bob.hey("4?"), "Sure.")
 
     def test_shouting_with_special_characters(self):
         self.assertEqual(
@@ -59,8 +59,8 @@ class BobTests(unittest.TestCase):
         self.assertEqual(
             bob.hey("Ending with ? means a question."), "Whatever.")
 
-    # def test_non_letters_with_question(self):
-    #     self.assertEqual(bob.hey(":) ?"), "Sure.")
+    def test_non_letters_with_question(self):
+        self.assertEqual(bob.hey(":) ?"), "Sure.")
 
     def test_prattling_on(self):
         self.assertEqual(
