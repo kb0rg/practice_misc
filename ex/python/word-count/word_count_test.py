@@ -35,11 +35,11 @@ class WordCountTests(unittest.TestCase):
             {'one': 1, 'two': 1, 'three': 1}
         )
 
-    # def test_ignores_punctuation(self):
-    #     self.assertEqual(
-    #         word_count('car : carpet as java : javascript!!&@$%^&'),
-    #         {'car': 1, 'carpet': 1, 'as': 1, 'java': 1, 'javascript': 1}
-    #     )
+    def test_ignores_punctuation(self):
+        self.assertEqual(
+            word_count('car : carpet as java : javascript!!&@$%^&'),
+            {'car': 1, 'carpet': 1, 'as': 1, 'java': 1, 'javascript': 1}
+        )
 
     def test_include_numbers(self):
         self.assertEqual(
@@ -59,12 +59,12 @@ class WordCountTests(unittest.TestCase):
             {'first': 1, "don't": 2, 'laugh': 1, 'then': 1, 'cry': 1}
         )
 
-    # def test_quotations(self):
-    #     self.assertEqual(
-    #         word_count("Joe can't tell between 'large' and large."),
-    #         {'joe': 1, "can't": 1, 'tell': 1, 'between': 1, 'large': 2,
-    #          'and': 1}
-    #     )
+    def test_quotations(self):
+        self.assertEqual(
+            word_count("Joe can't tell between 'large' and large."),
+            {'joe': 1, "can't": 1, 'tell': 1, 'between': 1, 'large': 2,
+             'and': 1}
+        )
 
     # Additional tests for this track
 
