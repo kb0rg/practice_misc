@@ -10,7 +10,6 @@ index = {
     '4th': 3,
     '5th': 4,
     'last': -1,
-    # 'teenth': ?
 }
 
 def meetup_day(year, month, day_of_the_week, which):
@@ -24,9 +23,17 @@ def meetup_day(year, month, day_of_the_week, which):
     month_days = calendar.Calendar().itermonthdays2(year, month)
     opts = [x[0] for x in month_days if x[1] == WEEKDAYS[day_of_the_week] and x[0] != 0]
 
-    try:
-        day = opts[index[which]]
-    except KeyError:
-        raise Exception
+    i = index.get(which)
+
+    if not i: # is teenth
+        for y in opts:
+            if y > 12 and y < 20:
+                day = y
+                continue
+    else:
+        try:
+            day = opts[i]
+        except KeyError:
+            raise Exception
 
     return datetime.date(year, month, day)

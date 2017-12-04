@@ -13,89 +13,89 @@ except ImportError:
 # Tests adapted from `problem-specifications//canonical-data.json` @ v1.0.0
 
 class MeetupTest(unittest.TestCase):
-    # def test_monteenth_of_may_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 5, 'Monday', 'teenth'), date(2013, 5, 13))
+    def test_monteenth_of_may_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 5, 'Monday', 'teenth'), date(2013, 5, 13))
 
-    # def test_monteenth_of_august_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 8, 'Monday', 'teenth'), date(2013, 8, 19))
+    def test_monteenth_of_august_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 8, 'Monday', 'teenth'), date(2013, 8, 19))
 
-    # def test_monteenth_of_september_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 9, 'Monday', 'teenth'), date(2013, 9, 16))
+    def test_monteenth_of_september_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 9, 'Monday', 'teenth'), date(2013, 9, 16))
 
-    # def test_tuesteenth_of_march_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 3, 'Tuesday', 'teenth'), date(2013, 3, 19))
+    def test_tuesteenth_of_march_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 3, 'Tuesday', 'teenth'), date(2013, 3, 19))
 
-    # def test_tuesteenth_of_april_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 4, 'Tuesday', 'teenth'), date(2013, 4, 16))
+    def test_tuesteenth_of_april_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 4, 'Tuesday', 'teenth'), date(2013, 4, 16))
 
-    # def test_tuesteenth_of_august_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 8, 'Tuesday', 'teenth'), date(2013, 8, 13))
+    def test_tuesteenth_of_august_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 8, 'Tuesday', 'teenth'), date(2013, 8, 13))
 
-    # def test_wednesteenth_of_january_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 1, 'Wednesday', 'teenth'), date(2013, 1, 16))
+    def test_wednesteenth_of_january_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 1, 'Wednesday', 'teenth'), date(2013, 1, 16))
 
-    # def test_wednesteenth_of_february_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 2, 'Wednesday', 'teenth'), date(2013, 2, 13))
+    def test_wednesteenth_of_february_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 2, 'Wednesday', 'teenth'), date(2013, 2, 13))
 
-    # def test_wednesteenth_of_june_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 6, 'Wednesday', 'teenth'), date(2013, 6, 19))
+    def test_wednesteenth_of_june_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 6, 'Wednesday', 'teenth'), date(2013, 6, 19))
 
-    # def test_thursteenth_of_may_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 5, 'Thursday', 'teenth'), date(2013, 5, 16))
+    def test_thursteenth_of_may_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 5, 'Thursday', 'teenth'), date(2013, 5, 16))
 
-    # def test_thursteenth_of_june_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 6, 'Thursday', 'teenth'), date(2013, 6, 13))
+    def test_thursteenth_of_june_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 6, 'Thursday', 'teenth'), date(2013, 6, 13))
 
-    # def test_thursteenth_of_september_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 9, 'Thursday', 'teenth'), date(2013, 9, 19))
+    def test_thursteenth_of_september_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 9, 'Thursday', 'teenth'), date(2013, 9, 19))
 
-    # def test_friteenth_of_april_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 4, 'Friday', 'teenth'), date(2013, 4, 19))
+    def test_friteenth_of_april_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 4, 'Friday', 'teenth'), date(2013, 4, 19))
 
-    # def test_friteenth_of_august_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 8, 'Friday', 'teenth'), date(2013, 8, 16))
+    def test_friteenth_of_august_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 8, 'Friday', 'teenth'), date(2013, 8, 16))
 
-    # def test_friteenth_of_september_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 9, 'Friday', 'teenth'), date(2013, 9, 13))
+    def test_friteenth_of_september_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 9, 'Friday', 'teenth'), date(2013, 9, 13))
 
-    # def test_saturteenth_of_february_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 2, 'Saturday', 'teenth'), date(2013, 2, 16))
+    def test_saturteenth_of_february_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 2, 'Saturday', 'teenth'), date(2013, 2, 16))
 
-    # def test_saturteenth_of_april_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 4, 'Saturday', 'teenth'), date(2013, 4, 13))
+    def test_saturteenth_of_april_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 4, 'Saturday', 'teenth'), date(2013, 4, 13))
 
-    # def test_saturteenth_of_october_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 10, 'Saturday', 'teenth'), date(2013, 10, 19))
+    def test_saturteenth_of_october_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 10, 'Saturday', 'teenth'), date(2013, 10, 19))
 
-    # def test_sunteenth_of_may_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 5, 'Sunday', 'teenth'), date(2013, 5, 19))
+    def test_sunteenth_of_may_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 5, 'Sunday', 'teenth'), date(2013, 5, 19))
 
-    # def test_sunteenth_of_june_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 6, 'Sunday', 'teenth'), date(2013, 6, 16))
+    def test_sunteenth_of_june_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 6, 'Sunday', 'teenth'), date(2013, 6, 16))
 
-    # def test_sunteenth_of_october_2013(self):
-    #     self.assertEqual(
-    #         meetup_day(2013, 10, 'Sunday', 'teenth'), date(2013, 10, 13))
+    def test_sunteenth_of_october_2013(self):
+        self.assertEqual(
+            meetup_day(2013, 10, 'Sunday', 'teenth'), date(2013, 10, 13))
 
     def test_first_monday_of_march_2013(self):
         self.assertEqual(
