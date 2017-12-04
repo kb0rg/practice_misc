@@ -3,13 +3,13 @@ import calendar
 
 WEEKDAYS = {day: num for (num, day) in enumerate(calendar.day_name)}
 
-index = {
-    '1st': 0,
-    '2nd': 1,
-    '3rd': 2,
-    '4th': 3,
-    '5th': 4,
-    'last': -1,
+INDEX = {
+    '1st': '0',
+    '2nd': '1',
+    '3rd': '2',
+    '4th': '3',
+    '5th': '4',
+    'last': '-1',
 }
 
 def meetup_day(year, month, day_of_the_week, which):
@@ -23,7 +23,7 @@ def meetup_day(year, month, day_of_the_week, which):
     month_days = calendar.Calendar().itermonthdays2(year, month)
     opts = [x[0] for x in month_days if x[1] == WEEKDAYS[day_of_the_week] and x[0] != 0]
 
-    i = index.get(which)
+    i = INDEX.get(which)
 
     if not i: # is teenth
         for y in opts:
@@ -32,7 +32,7 @@ def meetup_day(year, month, day_of_the_week, which):
                 continue
     else:
         try:
-            day = opts[i]
+            day = opts[int(i)]
         except KeyError:
             raise Exception
 
