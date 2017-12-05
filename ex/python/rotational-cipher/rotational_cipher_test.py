@@ -32,16 +32,16 @@ class RotationalCipher(unittest.TestCase):
             rotational_cipher.rotate('Testing 1 2 3 testing', 4),
             'Xiwxmrk 1 2 3 xiwxmrk')
 
-    # def test_rotate_punctuation(self):
-    #     self.assertEqual(
-    #         rotational_cipher.rotate("Let's eat, Grandma!", 21),
-    #         "Gzo'n zvo, Bmviyhv!")
+    def test_rotate_punctuation(self):
+        self.assertEqual(
+            rotational_cipher.rotate("Let's eat, Grandma!", 21),
+            "Gzo'n zvo, Bmviyhv!")
 
-    # def test_rotate_all_letters(self):
-    #     self.assertEqual(
-    #         rotational_cipher.rotate("The quick brown fox jumps"
-    #                                  " over the lazy dog.", 13),
-    #         "Gur dhvpx oebja sbk whzcf bire gur ynml qbt.")
+    def test_rotate_all_letters(self):
+        self.assertEqual(
+            rotational_cipher.rotate("The quick brown fox jumps"
+                                     " over the lazy dog.", 13),
+            "Gur dhvpx oebja sbk whzcf bire gur ynml qbt.")
 
 
 if __name__ == '__main__':
