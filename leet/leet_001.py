@@ -19,9 +19,11 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        opts = dict()
 
-        for i in range(len(nums)-1):
-            if not nums[i] > target:
-                for j in range(i+1, len(nums)):
-                    if nums[i] + nums[j] == target:
-                        return [i, j]
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff not in opts:
+                opts[n] = i
+            else:
+                return [opts[diff], i]
