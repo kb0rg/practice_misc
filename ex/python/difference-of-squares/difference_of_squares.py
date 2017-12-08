@@ -1,3 +1,5 @@
+# Look into Pascal's triangle
+# see sol by NewForester: (((nn / 2) * (nn + 1)) ** 2)
 def square_of_sum(num):
     return sum(range(1, num+1))**2
 
