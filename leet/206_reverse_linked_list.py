@@ -10,12 +10,12 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        
+
         if head == None:
             return None
         if head.next == None:
             return head
-        
+
         prev = None
         current = head
         old_next = current.next
@@ -28,6 +28,6 @@ class Solution(object):
             current = old_next
             # store "next" from input list
             old_next = old_next.next
-            
+
         current.next = prev
         return current
