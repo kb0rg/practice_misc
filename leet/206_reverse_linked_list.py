@@ -1,3 +1,13 @@
+"""
+Reverse a singly linked list.
+
+Example:
+
+Input: 1->2->3->4->5->NULL
+Output: 5->4->3->2->1->NULL
+
+"""
+
 # Definition for singly-linked list.
 class ListNode(object):
     def __init__(self, x):
@@ -5,11 +15,7 @@ class ListNode(object):
         self.next = None
 
 class Solution(object):
-    def reverseList(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
+    def reverseList(self, head: ListNode) -> ListNode:
 
         if head == None:
             return None
