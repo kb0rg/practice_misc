@@ -1,3 +1,5 @@
+import unittest
+
 """
 Given an array of integers, return indices of the two numbers such that they
 add up to a specific target.
@@ -27,3 +29,14 @@ class Solution(object):
                 opts[n] = i
             else:
                 return [opts[diff], i]
+
+class Tests(unittest.TestCase):
+
+    sol = Solution()
+
+    def test_base(self):
+        self.assertEqual(self.sol.twoSum([2, 7, 11, 15], 9), [0,1])
+
+
+if __name__ == '__main__':
+    unittest.main()
