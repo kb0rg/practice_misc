@@ -19,7 +19,7 @@ def isValid(input_string):
     for char in input_string:
         if char in ["(", "[", "{"]:
             paren_stack.append(char)
-        elif char == paren_dict[paren_stack[-1]]:
+        elif len(paren_stack) and char == paren_dict[paren_stack[-1]]:
             paren_stack.pop()
         else:
             return False
@@ -45,6 +45,9 @@ class TestParenthesesStrings(unittest.TestCase):
 
     def test_nested_pairs(self):
         self.assertTrue(isValid("{[]}"))
+
+    def test_single_right_side_input(self):
+        self.assertFalse(isValid("]"))
 
 if __name__ == '__main__':
 
