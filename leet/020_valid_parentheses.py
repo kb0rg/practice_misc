@@ -34,6 +34,20 @@ Output: true
 
 def isValid(input_string):
 
+    paren_stack = []
+    paren_dict = { "(": ")", "{": "}", "[": "]" }
+
+    for char in input_string:
+        if char in ["(", "[", "{"]:
+            paren_stack.append(char)
+        elif char == paren_dict[paren_stack[-1]]:
+            paren_stack.pop()
+        else:
+            return False
+    if len(paren_stack) != 0:
+        return False
+
+    return True
 
 
 class TestParenthesesStrings(unittest.TestCase):
