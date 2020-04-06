@@ -11,7 +11,7 @@ Open brackets must be closed in the correct order.
 Note that an empty string is also considered valid.
 """
 
-def isValid(input_string):
+def is_valid(input_string):
 
     paren_stack = []
     paren_dict = { "(": ")", "{": "}", "[": "]" }
@@ -32,22 +32,22 @@ def isValid(input_string):
 class TestParenthesesStrings(unittest.TestCase):
 
     def test_base_case_valid(self):
-        self.assertEqual(isValid("()"), True)
+        self.assertEqual(is_valid("()"), True)
 
     def test_base_case_invalid(self):
-        self.assertEqual(isValid("(]"), False)
+        self.assertEqual(is_valid("(]"), False)
 
     def test_one_of_each_pair(self):
-        self.assertEqual(isValid("()[]{}"), True)
+        self.assertEqual(is_valid("()[]{}"), True)
 
     def test_interwoven_pairs(self):
-        self.assertFalse(isValid("([)]"))
+        self.assertFalse(is_valid("([)]"))
 
     def test_nested_pairs(self):
-        self.assertTrue(isValid("{[]}"))
+        self.assertTrue(is_valid("{[]}"))
 
     def test_single_right_side_input(self):
-        self.assertFalse(isValid("]"))
+        self.assertFalse(is_valid("]"))
 
 if __name__ == '__main__':
 
