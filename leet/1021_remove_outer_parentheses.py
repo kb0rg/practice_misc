@@ -65,21 +65,26 @@ class Solution:
 
         # check for valid primitives by looking for complete sets of "()" chars
         for char in S:
-            if not len(substring_stack):
+            if char == "(":
+                if not len(substring_stack):
+                    start_index += 1
                 substring_stack.append(char)
                 end_index += 1
             else:
-                if char == "(":
+                if substring_stack[-1] == ")":
                     substring_stack.append(char)
-                    end_index += 1
                 else:
-                    # if last char in stack is ")", append char
-                    # else pop last char in stack
-
-            # once I've identified a valid primitive, add it to a list
-            primitive_substrings.append(S[start_index, end_index + 1])
+                    substring_stack.pop()
+                end_index += 1
+            if not len(substring_stack):
+                # once I've identified a valid primitive, add it to a list
+                primitive_substrings.append(S[start_index, end_index + 1])
+                end_index += 1
+                start_index = end_index
 
         # then iterate through that list and remove the outer parens
+        for substring in primitive_substrings:
+            return_substrings.append(substring[:-1])
 
         # return remaining substrings as a string
         return return_substrings.join()
