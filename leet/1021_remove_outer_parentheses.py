@@ -78,7 +78,7 @@ class Solution:
                 end_index += 1
             if not len(substring_stack):
                 # once I've identified a valid primitive, add it to a list
-                primitive_substrings.append(S[start_index, end_index + 1])
+                primitive_substrings.append(S[start_index: end_index + 1])
                 end_index += 1
                 start_index = end_index
 
@@ -87,4 +87,4 @@ class Solution:
             return_substrings.append(substring[:-1])
 
         # return remaining substrings as a string
-        return return_substrings.join()
+        return "".join(return_substrings)
