@@ -68,25 +68,24 @@ class Solution:
         for char in S:
             if char == "(":
                 if not len(substring_stack):
-                    start_index += current_index
+                    start_index = current_index
                 substring_stack.append(char)
-                end_index += 1
             else:
-                if substring_stack[-1] == ")":
-                    substring_stack.append(char)
-                else:
+                if substring_stack[-1] == "(":
                     substring_stack.pop()
-                end_index += 1
+
             if not len(substring_stack):
                 # once I've identified a valid primitive, add it to a list
                 primitive_substrings.append(S[start_index: end_index + 1])
-                end_index += 1
-                start_index = end_index
+                start_index = end_index + 1
+
+            end_index += 1
             current_index += 1
+
 
         # then iterate through that list and remove the outer parens
         for substring in primitive_substrings:
-            return_substrings.append(substring[:-1])
+            return_substrings.append(substring[1:-1])
 
         # return remaining substrings as a string
         return "".join(return_substrings)
