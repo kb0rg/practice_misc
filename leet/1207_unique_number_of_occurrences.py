@@ -31,3 +31,15 @@ Constraints:
 
 class Solution:
     def uniqueOccurrences(self, arr: List[int]) -> bool:
+
+        counter = {}
+
+        for item in arr:
+            counter[item] = counter.get(item, 0) + 1
+
+        counts = counter.values()
+
+        if len(counts) == len(set(counts)):
+            return True
+        return False
+
