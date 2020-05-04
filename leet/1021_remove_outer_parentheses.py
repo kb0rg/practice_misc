@@ -57,7 +57,6 @@ S is a valid parentheses string
 class Solution:
     def removeOuterParentheses(self, S: str) -> str:
         return_substrings = []
-        primitive_substrings = []
 
         substring_stack = []
         start_index = 0
@@ -75,17 +74,13 @@ class Solution:
                     substring_stack.pop()
 
             if not len(substring_stack):
-                # once I've identified a valid primitive, add it to a list
-                primitive_substrings.append(S[start_index: end_index + 1])
+                # once I've identified a valid primitive, strip the outer char
+                # and add it to a list
+                return_substrings.append(S[start_index + 1: end_index])
                 start_index = end_index + 1
 
             end_index += 1
             current_index += 1
-
-
-        # then iterate through that list and remove the outer parens
-        for substring in primitive_substrings:
-            return_substrings.append(substring[1:-1])
 
         # return remaining substrings as a string
         return "".join(return_substrings)
