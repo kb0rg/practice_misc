@@ -62,12 +62,13 @@ class Solution:
         substring_stack = []
         start_index = 0
         end_index = 0
+        current_index = 0
 
         # check for valid primitives by looking for complete sets of "()" chars
         for char in S:
             if char == "(":
                 if not len(substring_stack):
-                    start_index += 1
+                    start_index += current_index
                 substring_stack.append(char)
                 end_index += 1
             else:
@@ -81,6 +82,7 @@ class Solution:
                 primitive_substrings.append(S[start_index: end_index + 1])
                 end_index += 1
                 start_index = end_index
+            current_index += 1
 
         # then iterate through that list and remove the outer parens
         for substring in primitive_substrings:
