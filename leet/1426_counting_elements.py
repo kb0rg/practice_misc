@@ -49,3 +49,11 @@ Constraints:
 class Solution:
     def countElements(self, arr: List[int]) -> int:
 
+        counter = 0
+
+        unique_items = set(arr)
+
+        for item in arr:
+            if item + 1 in unique_items:
+                counter += 1
+        return counter
