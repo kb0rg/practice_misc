@@ -45,4 +45,16 @@ Constraints:
 
 class Solution:
     def numberOfSteps (self, num: int) -> int:
+        number_of_steps = 0
 
+        if num == 0:
+            return number_of_steps
+
+        while num > 0:
+            if num % 2 == 0:
+                num = num / 2
+            else:
+                num = num -1
+            number_of_steps += 1
+
+        return number_of_steps
