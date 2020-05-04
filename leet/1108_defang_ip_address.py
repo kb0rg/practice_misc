@@ -26,4 +26,11 @@ The given address is a valid IPv4 address.
 
 class Solution:
     def defangIPaddr(self, address: str) -> str:
+        output = []
 
+        for char in address:
+            if char == ".":
+                output.append("[.]")
+            else:
+                output.append(char)
+        return "".join(output)

@@ -26,3 +26,13 @@ S consists of lowercase English letters only.
 
 class Solution:
     def removeVowels(self, S: str) -> str:
+
+        vowels = ("a", "e", "i", "o", "u")
+        new_string = []
+
+        for char in S:
+            if not char in vowels:
+                new_string.append(char)
+
+        return "".join(new_string)
+
