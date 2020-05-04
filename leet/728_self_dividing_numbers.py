@@ -18,6 +18,9 @@ left = 1, right = 22
 Output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]
 
 """
+from typing import List
+import unittest
+
 class Solution:
 
     def isSelfDividing(self, num:int) -> bool:
@@ -40,3 +43,29 @@ class Solution:
             if self.isSelfDividing(num):
                 answer.append(num)
         return answer
+
+
+class TestSelfDividingNumber(unittest.TestCase):
+
+    sol = Solution()
+
+    def test_self_dividing_zero_fails(self):
+        self.assertEqual(self.sol.isSelfDividing(0), False)
+        self.assertFalse(self.sol.isSelfDividing(0))
+
+    def test_self_dividing_11(self):
+        self.assertEqual(self.sol.isSelfDividing(11), True)
+
+    def test_self_dividing_13(self):
+        self.assertEqual(self.sol.isSelfDividing(13), False)
+
+    def test_self_dividing_list_base_case(self):
+        self.assertEqual(self.sol.selfDividingNumbers(1, 22), [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22])
+
+    def test_self_dividing_list_simple(self):
+        self.assertEqual(self.sol.selfDividingNumbers(4, 5), [4, 5])
+
+
+if __name__ == '__main__':
+
+    unittest.main()
