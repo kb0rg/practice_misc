@@ -11,11 +11,14 @@ Note:
 All given inputs are in lowercase letters a-z.
 """
 
+from typing import List
 import unittest
 
 class Solution(object):
     def longestCommonPrefix(self, strs: List[str]) -> str:
 
+        if not strs:
+            return ''
 
 class Tests(unittest.TestCase):
 
