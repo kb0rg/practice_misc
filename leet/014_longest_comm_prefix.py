@@ -7,21 +7,34 @@ strings.
 
 If there is no common prefix, return an empty string "".
 
-Example 1:
-
-Input: ["flower","flow","flight"]
-Output: "fl"
-
-Example 2:
-
-Input: ["dog","racecar","car"]
-Output: ""
-Explanation: There is no common prefix among the input strings.
-
 Note:
 All given inputs are in lowercase letters a-z.
 """
 
+import unittest
+
 class Solution(object):
     def longestCommonPrefix(self, strs: List[str]) -> str:
 
+
+class Tests(unittest.TestCase):
+
+    sol = Solution()
+
+    def test_empty_input(self):
+        self.assertEqual(self.sol.longestCommonPrefix([]), '')
+
+    def test_example_2_no_match(self):
+        input = ['dog', 'racecar', 'car']
+        self.assertEqual(self.sol.longestCommonPrefix(input), '')
+
+    def test_example_1(self):
+        input = ['flower', 'flow', 'flight']
+        self.assertEqual(self.sol.longestCommonPrefix(input), 'fl')
+
+    def test_match_lee(self):
+        input = ['leetcode', 'leets', 'leet', 'leeds']
+        self.assertEqual(self.sol.longestCommonPrefix(input), 'lee')
+
+if __name__ == '__main__':
+    unittest.main()
