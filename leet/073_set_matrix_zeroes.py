@@ -20,7 +20,24 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
-        pass
+
+        rows_to_zero = set()
+        columns_to_zero = set()
+
+        for i, row in enumerate(matrix):
+            for j, value in enumerate(row):
+                if value == 0:
+                    rows_to_zero.add(i)
+                    columns_to_zero.add(j)
+
+        for row_index in rows_to_zero:
+            matrix[row_index] = [0] * len(matrix[0])
+        for col_index in columns_to_zero:
+            for i in range(len(matrix)):
+                matrix[i][col_index] = 0
+
+
+
 
 class Test(unittest.TestCase):
 
