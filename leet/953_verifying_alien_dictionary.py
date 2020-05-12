@@ -44,6 +44,31 @@ All characters in words[i] and order are English lowercase letters.
 """
 
 class Solution:
-    def isAlienSorted(self, words: List[str], order: str) -> bool:
-        pass
+    def compare_words(self, word_a, word_b, order_indexes):
+        for i in range(len(word_a)):
+            if i < len(word_b):
+                char_a = word_a[i]
+                char_b = word_b[i]
+                if order_indexes[char_a] < order_indexes[char_b]:
+                    return True
+                if order_indexes[char_a] > order_indexes[char_b]:
+                    return False
+        if len(word_a) < len(word_b):
+            return True
+        return False
 
+
+    def isAlienSorted(self, words: List[str], order: str) -> bool:
+        if len(words) == 1:
+            return True
+
+        order_indexes = {}
+        for i, char in enumerate(order):
+            order_indexes[char] = i
+        for i, word in enumerate(words):
+            # check against next word
+            if i < len(words) -1:
+                next_word = words[i+1]
+                if not self.compare_words(word, next_word, order_indexes):
+                    return False
+        return True
