@@ -23,10 +23,9 @@ class Solution:
 
         flopped_pairs = 0
         for i in range(len(A)-1):
-            if A[i] != B[i]:
-                if A[i] == B[i + 1] and B[i] == A[i+1]:
-                    flopped_pairs += 1
-        if flopped_pairs > 1:
+            if A[i] == B[i + 1] and B[i] == A[i+1]:
+                flopped_pairs += 1
+        if flopped_pairs < 1:
             return False
         return True
 
