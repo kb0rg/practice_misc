@@ -21,11 +21,11 @@ class Solution:
         if not len(A) == len(B):
             return False
 
-        flopped_pairs = 0
+        flopped_pairs = set()
         for i in range(len(A)-1):
             if A[i] == B[i + 1] and B[i] == A[i+1]:
-                flopped_pairs += 1
-        if flopped_pairs < 1:
+                flopped_pairs.add((A[i], B[i]))
+        if len(flopped_pairs) != 1:
             return False
         return True
 
