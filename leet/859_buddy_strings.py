@@ -21,6 +21,9 @@ class Solution:
         if not len(A) == len(B):
             return False
 
+        if A == B:
+            return False
+
         differences = 0
         for i in range(len(A)-1):
             if A[i] != B[i]:
