@@ -23,7 +23,16 @@ import unittest
 
 class Solution:
     def getHint(self, secret: str, guess: str) -> str:
-        pass
+        bulls = 0
+        cows = 0
+        for i in range(len(guess)):
+            if guess[i] == secret[i]:
+                bulls += 1
+            else:
+                if guess[i] in secret:
+                    cows += 1
+        return "{}A{}B".format(bulls, cows)
+
 
 
 class Tests(unittest.TestCase):
