@@ -17,18 +17,16 @@ import unittest
 
 class Solution:
     def buddyStrings(self, A: str, B: str) -> bool:
-
         if not len(A) == len(B):
             return False
 
-        flopped_pairs = set()
         for i in range(len(A)-1):
-            if A[i] == B[i + 1] and B[i] == A[i+1]:
-                flopped_pairs.add((A[i], B[i]))
-        if len(flopped_pairs) != 1:
-            return False
-        return True
-
+            i_char = A[i]
+            i_plu_one_char = A[i+1]
+            new_string = A[:i] + i_plu_one_char + i_char + A[i+2:]
+            if new_string == B:
+                return True
+        return False
 
 
 class Tests(unittest.TestCase):
@@ -50,8 +48,11 @@ class Tests(unittest.TestCase):
     def test_example_5(self):
         self.assertEqual(self.sol.buddyStrings("", "aa"), False)
 
-    def test_example_identical_strings(self):
+    def test_example_identical_strings_false(self):
         self.assertEqual(self.sol.buddyStrings("abcde", "abcde"), False)
+
+    def test_example_identical_strings_true(self):
+        self.assertEqual(self.sol.buddyStrings("abab", "abab"), True)
 
     def test_example_more_than_one_flopped_pair(self):
         self.assertEqual(self.sol.buddyStrings("abcd", "badc"), False)
