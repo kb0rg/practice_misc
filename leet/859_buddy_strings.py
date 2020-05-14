@@ -17,26 +17,10 @@ import unittest
 
 class Solution:
     def buddyStrings(self, A: str, B: str) -> bool:
-        listify_string = list(A)
-        for i in range(len(listify_string)):
-            # split the A string into parts:
-            # before curr char,
-            # current and next char, swapped,
-            # after next char
-            # then re-assemble, and compare with str B
-            #
-            # EX: "abcd" "acbd"
-            while i < len(listify_string) - 2:
-                # this borked - when I walked through it, I realized my mistake
-                # in the first position
-                if "".join([
-                    str(listify_string[0:i]), # "a"
-                    listify_string[i+1], # "c"
-                    listify_string[i], # "b"
-                    str(listify_string[i+2:]) # "d"
-                ]) == B:
-                    return True
-        return False
+
+        if not len(A) == len(B):
+            return False
+
 
 class Tests(unittest.TestCase):
 
