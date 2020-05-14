@@ -61,5 +61,12 @@ class Tests(unittest.TestCase):
         guess = "110"
         self.assertEqual(self.sol.getHint(secret, guess), "1A2B")
 
+    def test_example_4(self):
+        # Explanation:
+        secret = "1122"
+        guess = "2211"
+        self.assertEqual(self.sol.getHint(secret, guess), "0A4B")
+
+
 if __name__ == '__main__':
     unittest.main()
