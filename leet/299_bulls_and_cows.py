@@ -27,10 +27,10 @@ class Solution:
         cows = 0
         guessed = set()
         for i in range(len(guess)):
-            if not guess[i] in guessed:
-                if guess[i] == secret[i]:
-                    bulls += 1
-                else:
+            if guess[i] == secret[i]:
+                bulls += 1
+            else:
+                if not guess[i] in guessed:
                     if guess[i] in secret:
                         cows += 1
                         guessed.add(guess[i])
