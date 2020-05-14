@@ -53,6 +53,9 @@ class Tests(unittest.TestCase):
     def test_example_identical_strings(self):
         self.assertEqual(self.sol.buddyStrings("abcde", "abcde"), False)
 
+    def test_example_more_than_one_flopped_pair(self):
+        self.assertEqual(self.sol.buddyStrings("abcd", "badc"), False)
+
 
 if __name__ == '__main__':
     unittest.main()
