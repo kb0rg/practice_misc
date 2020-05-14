@@ -51,6 +51,9 @@ class Tests(unittest.TestCase):
     def test_example_5(self):
         self.assertEqual(self.sol.buddyStrings("", "aa"), False)
 
+    def test_example_identical_strings(self):
+        self.assertEqual(self.sol.buddyStrings("abcde", "abcde"), False)
+
 
 if __name__ == '__main__':
     unittest.main()
