@@ -21,6 +21,16 @@ class Solution:
         if not len(A) == len(B):
             return False
 
+        differences = 0
+        for i in range(len(A)-1):
+            if A[i] != B[i]:
+                if A[i] == B[i + 1] and B[i] == A[i+1]:
+                    differences += 1
+        if differences > 1:
+            return False
+        return True
+
+
 
 class Tests(unittest.TestCase):
 
