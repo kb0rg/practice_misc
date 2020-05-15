@@ -26,15 +26,15 @@ class Solution:
         bulls = 0
         cows = 0
 
-        guess_char = { char: []+[i] for i, char in enumerate(guess)}
-        secret_char = { char: []+[i] for i, char in enumerate(secret)}
+        secret_char = {}
+        for i, char in enumerate(secret):
+            secret_char[char] = secret_char.get(char, []) + [i]
 
-        for char in list(set(guess_char.keys()) & set(secret_char.keys())):
-            for i in guess_char[char]:
-                if i in secret_char[char]:
-                    bulls += 1
-                else:
-                    cows += 1
+        for i, char in enumerate(guess):
+            if char in secret_char:
+                bulls += 1
+            else:
+                cows += 1
 
         return "{}A{}B".format(bulls, cows)
 
@@ -68,6 +68,10 @@ class Tests(unittest.TestCase):
         guess = "2211"
         self.assertEqual(self.sol.getHint(secret, guess), "0A4B")
 
+    def test_another_leetcode_example(self):
+        secret = "1807"
+        guess = "7801"
+        self.assertEqual(self.sol.getHint(secret, guess), "1A3B")
 
 if __name__ == '__main__':
     unittest.main()
