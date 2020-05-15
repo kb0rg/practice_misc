@@ -24,7 +24,6 @@ class Solution:
         for i in range(len(A)):
             if not A[i] == B[i]:
                 differences.append((A[i], B[i]))
-        print(differences)
 
         if len(differences) == 0:
             if len(set(A)) != len(A):
