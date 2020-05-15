@@ -20,11 +20,17 @@ class Solution:
         if not len(A) == len(B):
             return False
 
-        for i in range(len(A)-1):
-            i_char = A[i]
-            i_plu_one_char = A[i+1]
-            new_string = A[:i] + i_plu_one_char + i_char + A[i+2:]
-            if new_string == B:
+        differences = []
+        for i in range(len(A)):
+            if not A[i] == B[i]:
+                differences.append((A[i], B[i]))
+        print(differences)
+
+        if len(differences) == 0:
+            if len(set(A)) != len(A):
+                return True
+        if len(differences) == 2:
+            if list(differences[0]) == list(differences[1])[::-1]:
                 return True
         return False
 
@@ -56,6 +62,9 @@ class Tests(unittest.TestCase):
 
     def test_example_more_than_one_flopped_pair(self):
         self.assertEqual(self.sol.buddyStrings("abcd", "badc"), False)
+
+    def test_example_another_false(self):
+        self.assertEqual(self.sol.buddyStrings("abcaa", "abcbb"), False)
 
 
 if __name__ == '__main__':
