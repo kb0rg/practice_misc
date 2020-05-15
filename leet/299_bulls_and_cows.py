@@ -25,17 +25,18 @@ class Solution:
     def getHint(self, secret: str, guess: str) -> str:
         bulls = 0
         cows = 0
-        guessed = set()
-        for i in range(len(guess)):
-            if guess[i] == secret[i]:
-                bulls += 1
-            else:
-                if not guess[i] in guessed:
-                    if guess[i] in secret:
-                        cows += 1
-                        guessed.add(guess[i])
-        return "{}A{}B".format(bulls, cows)
 
+        guess_char = { char: []+[i] for i, char in enumerate(guess)}
+        secret_char = { char: []+[i] for i, char in enumerate(secret)}
+
+        for char in list(set(guess_char.keys()) & set(secret_char.keys())):
+            for i in guess_char[char]:
+                if i in secret_char[char]:
+                    bulls += 1
+                else:
+                    cows += 1
+
+        return "{}A{}B".format(bulls, cows)
 
 class Tests(unittest.TestCase):
 
