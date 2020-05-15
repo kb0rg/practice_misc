@@ -74,10 +74,11 @@ class Tests(unittest.TestCase):
         guess = "2211"
         self.assertEqual(self.sol.getHint(secret, guess), "0A4B")
 
-    def test_another_leetcode_example(self):
-        secret = "1807"
-        guess = "7801"
-        self.assertEqual(self.sol.getHint(secret, guess), "1A3B")
+    def test_one_and_zero(self):
+        secret = "11"
+        guess = "10"
+        self.assertEqual(self.sol.getHint(secret, guess), "1A0B")
+
 
 if __name__ == '__main__':
     unittest.main()
