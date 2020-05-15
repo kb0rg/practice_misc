@@ -26,20 +26,32 @@ class Solution:
         bulls = 0
         cows = 0
 
+        guess_chars = list(guess)
+        indexes_to_remove = []
         secret_char = {}
         for i, char in enumerate(secret):
             secret_char[char] = secret_char.get(char, []) + [i]
+        print(secret_char)
 
         for loc, char in enumerate(guess):
             if char in secret_char:
                 if loc in secret_char[char]:
                     bulls += 1
+                    print("removing bull char {} loc : {}".format(char, loc))
                     secret_char[char].remove(loc)
+                    indexes_to_remove.append(loc)
 
-        for loc, char in enumerate(guess):
+        print("secret_char after bulls : {} ".format(secret_char))
+        remaining_guesses = []
+        for i, char in enumerate(guess):
+            if i not in indexes_to_remove:
+                remaining_guesses.append(char)
+
+        for loc, char in enumerate(remaining_guesses):
             if char in secret_char:
                 if len(secret_char[char]) > 0:
                     cows += 1
+                    print("removing cow char {} loc : {}".format(char, loc))
                     secret_char[char].pop()
 
         return "{}A{}B".format(bulls, cows)
