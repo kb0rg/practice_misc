@@ -30,11 +30,17 @@ class Solution:
         for i, char in enumerate(secret):
             secret_char[char] = secret_char.get(char, []) + [i]
 
-        for i, char in enumerate(guess):
+        for loc, char in enumerate(guess):
             if char in secret_char:
-                bulls += 1
-            else:
-                cows += 1
+                if loc in secret_char[char]:
+                    bulls += 1
+                    secret_char[char].remove(loc)
+
+        for loc, char in enumerate(guess):
+            if char in secret_char:
+                if len(secret_char[char]) > 0:
+                    cows += 1
+                    secret_char[char].pop()
 
         return "{}A{}B".format(bulls, cows)
 
