@@ -16,14 +16,13 @@ import unittest
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         seen = set()
-        seen_again = set()
         for num in nums:
-            if num in seen:
-                seen_again.add(num)
-            else:
+            if num not in seen:
                 seen.add(num)
+            else:
+                seen.remove(num)
 
-        return (seen - seen_again).pop()
+        return seen.pop()
 
 
 
