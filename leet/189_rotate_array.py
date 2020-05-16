@@ -26,7 +26,10 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        pass
+        temp_nums = nums[len(nums)-k:] + nums[:len(nums)-k]
+        print("TEMP NUMS: {}".format(temp_nums))
+        nums = temp_nums
+        print("NEW NUMS: {}\n".format(temp_nums))
 
 class Tests(unittest.TestCase):
     sol = Solution()
@@ -41,8 +44,8 @@ class Tests(unittest.TestCase):
         nums = [1,2,3,4,5,6,7]
         k = 3
         output = [5,6,7,1,2,3,4]
-
-        self.assertEqual(self.sol.rotate(nums, k), output)
+        self.sol.rotate(nums, k)
+        self.assertEqual(nums, output)
 
 
     def test_example_2(self):
@@ -54,8 +57,8 @@ class Tests(unittest.TestCase):
         nums = [-1,-100,3,99]
         k = 2
         output = [3,99,-1,-100]
-
-        self.assertEqual(self.sol.rotate(nums, k), output)
+        self.sol.rotate(nums, k)
+        self.assertEqual(nums, output)
 
 
 if __name__ == "__main__":
