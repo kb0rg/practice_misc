@@ -12,31 +12,14 @@ ways to solve this problem.
 
 Could you do it in-place with O(1) extra space?
 
-
-Example 1:
-
-Input: nums = [1,2,3,4,5,6,7], k = 3
-Output: [5,6,7,1,2,3,4]
-Explanation:
-rotate 1 steps to the right: [7,1,2,3,4,5,6]
-rotate 2 steps to the right: [6,7,1,2,3,4,5]
-rotate 3 steps to the right: [5,6,7,1,2,3,4]
-
-Example 2:
-
-Input: nums = [-1,-100,3,99], k = 2
-Output: [3,99,-1,-100]
-Explanation:
-rotate 1 steps to the right: [99,-1,-100,3]
-rotate 2 steps to the right: [3,99,-1,-100]
-
-
 Constraints:
 
 1 <= nums.length <= 2 * 10^4
 It's guaranteed that nums[i] fits in a 32 bit-signed integer.
 k >= 0
 """
+from typing import List
+import unittest
 
 class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
@@ -44,3 +27,37 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         pass
+
+class Tests(unittest.TestCase):
+    sol = Solution()
+
+    def test_example_1(self):
+        """
+        Explanation:
+        rotate 1 steps to the right: [7,1,2,3,4,5,6]
+        rotate 2 steps to the right: [6,7,1,2,3,4,5]
+        rotate 3 steps to the right: [5,6,7,1,2,3,4]
+        """
+        nums = [1,2,3,4,5,6,7]
+        k = 3
+        output = [5,6,7,1,2,3,4]
+
+        self.assertEqual(self.sol.rotate(nums, k), output)
+
+
+    def test_example_2(self):
+        """
+        Explanation:
+        rotate 1 steps to the right: [99,-1,-100,3]
+        rotate 2 steps to the right: [3,99,-1,-100]
+        """
+        nums = [-1,-100,3,99]
+        k = 2
+        output = [3,99,-1,-100]
+
+        self.assertEqual(self.sol.rotate(nums, k), output)
+
+
+if __name__ == "__main__":
+
+    unittest.main()
