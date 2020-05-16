@@ -15,7 +15,16 @@ import unittest
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        pass
+        seen = set()
+        seen_again = set()
+        for num in nums:
+            if num in seen:
+                seen_again.add(num)
+            else:
+                seen.add(num)
+
+        return (seen - seen_again).pop()
+
 
 
 class Tests(unittest.TestCase):
