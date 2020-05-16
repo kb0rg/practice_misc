@@ -27,9 +27,8 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         temp_nums = nums[len(nums)-k:] + nums[:len(nums)-k]
-        print("TEMP NUMS: {}".format(temp_nums))
-        nums = temp_nums
-        print("NEW NUMS: {}\n".format(temp_nums))
+        nums.clear()
+        nums.extend(temp_nums)
 
 class Tests(unittest.TestCase):
     sol = Solution()
