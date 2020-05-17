@@ -18,7 +18,23 @@ class Solution(object):
     def longestCommonPrefix(self, strs: List[str]) -> str:
 
         if not strs:
-            return ''
+            return ""
+        prefix = []
+        for i in range(len(strs[0])):
+            current_char = strs[0][i]
+            prefix.append(current_char)
+            for word in strs[1:]:
+                if i < len(word):
+                    if word[i] != current_char:
+                        prefix.pop()
+                        break
+                else:
+                    prefix.pop()
+                    break
+
+        if len(prefix) >= 1:
+            return "".join(prefix)
+        return ""
 
 class Tests(unittest.TestCase):
 
@@ -38,6 +54,10 @@ class Tests(unittest.TestCase):
     def test_match_lee(self):
         input = ['leetcode', 'leets', 'leet', 'leeds']
         self.assertEqual(self.sol.longestCommonPrefix(input), 'lee')
+
+    def test_no_match(self):
+        input = ['aca','cba']
+        self.assertEqual(self.sol.longestCommonPrefix(input), '')
 
 if __name__ == '__main__':
     unittest.main()
