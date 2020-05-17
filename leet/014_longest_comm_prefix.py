@@ -20,17 +20,22 @@ class Solution(object):
         if not strs:
             return ""
         prefix = []
+        done = False
+
         for i in range(len(strs[0])):
-            current_char = strs[0][i]
-            prefix.append(current_char)
-            for word in strs[1:]:
-                if i < len(word):
-                    if word[i] != current_char:
+            while not done:
+                current_char = strs[0][i]
+                prefix.append(current_char)
+                for word in strs[1:]:
+                    if i < len(word):
+                        if word[i] != current_char:
+                            prefix.pop()
+                            done = True
+                            break
+                    else:
                         prefix.pop()
+                        done = True
                         break
-                else:
-                    prefix.pop()
-                    break
 
         if len(prefix) >= 1:
             return "".join(prefix)
