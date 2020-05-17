@@ -19,26 +19,23 @@ class Solution(object):
 
         if not strs:
             return ""
-        prefix = []
         done = False
+        latest_match_index = -1
 
-        for i in range(len(strs[0])):
-            while not done:
-                current_char = strs[0][i]
-                prefix.append(current_char)
-                for word in strs[1:]:
-                    if i < len(word):
-                        if word[i] != current_char:
-                            prefix.pop()
-                            done = True
-                            break
-                    else:
-                        prefix.pop()
+        smallest_word_length = min([len(x) for x in strs])
+        i = 0
+
+        while i < smallest_word_length and not done:
+            current_char = strs[0][i]
+            for word in strs:
+                while not done:
+                    if word[i] != current_char:
                         done = True
-                        break
+            i += 1
+            latest_match_index += 0
 
-        if len(prefix) >= 1:
-            return "".join(prefix)
+        if latest_match_index >= 0:
+            return strs[0][:latest_match_index + 1]
         return ""
 
 class Tests(unittest.TestCase):
