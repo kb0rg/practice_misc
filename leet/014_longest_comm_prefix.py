@@ -30,7 +30,7 @@ class Solution(object):
 
         while i < smallest_word_length and not done:
             current_char = strs[0][i]
-            for word in strs:
+            for word in strs[1:]:
                 while not done:
                     if word[i] != current_char:
                         done = True
