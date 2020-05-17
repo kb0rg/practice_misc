@@ -22,20 +22,18 @@ class Solution(object):
         if len(strs) == 1:
             return strs[0]
 
-        done = False
         latest_match_index = -1
 
         smallest_word_length = min([len(x) for x in strs])
         i = 0
 
-        while i < smallest_word_length and not done:
+        while i < smallest_word_length:
             current_char = strs[0][i]
             for word in strs[1:]:
-                while not done:
-                    if word[i] != current_char:
-                        done = True
+                if word[i] != current_char:
+                    return strs[0][:latest_match_index + 1]
+            latest_match_index += 1
             i += 1
-            latest_match_index += 0
 
         if latest_match_index >= 0:
             return strs[0][:latest_match_index + 1]
