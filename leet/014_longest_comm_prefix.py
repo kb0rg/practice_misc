@@ -19,6 +19,9 @@ class Solution(object):
 
         if not strs:
             return ""
+        if len(strs) == 1:
+            return strs[0]
+
         done = False
         latest_match_index = -1
 
