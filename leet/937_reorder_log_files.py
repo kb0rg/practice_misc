@@ -44,7 +44,7 @@ class Solution:
         # print(letter_logs)
         # print(digit_logs)
 
-        output = sorted(letter_logs, key=lambda x: x.split(" ")[1]+ x.split(" ")[0])
+        output = sorted(letter_logs, key=lambda x: "".join(x.split(" ")[1:])+ x.split(" ")[0])
         output.extend(digit_logs)
         return output
 
