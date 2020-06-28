@@ -37,14 +37,13 @@ class Solution:
         letter_logs = []
         digit_logs = []
         for log in logs:
-            if log.split(" ")[1].isalpha():
-                letter_logs.append(log)
+            parts = log.split()
+            if parts[1].isalpha():
+                letter_logs.append([log, " ".join(parts[1:])+ parts[0]])
             else:
                 digit_logs.append(log)
-        # print(letter_logs)
-        # print(digit_logs)
 
-        output = sorted(letter_logs, key=lambda x: " ".join(x.split(" ")[1:])+ x.split(" ")[0])
+        output = [x[0] for x in sorted(letter_logs, key=lambda x: x[1])]
         output.extend(digit_logs)
         return output
 
