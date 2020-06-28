@@ -57,5 +57,13 @@ class Tests(unittest.TestCase):
 
         self.assertEqual(self.sol.reorderLogFiles(input), expected_output)
 
+
+    def test_same_first_word(self):
+        input = ["a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"]
+        expected_output = ["g1 act car","a8 act zoo","ab1 off key dog","a1 9 2 3 1","zo4 4 7"]
+
+        self.assertEqual(self.sol.reorderLogFiles(input), expected_output)
+
+
 if __name__ == "__main__":
     unittest.main()
