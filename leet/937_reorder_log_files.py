@@ -65,5 +65,11 @@ class Tests(unittest.TestCase):
         self.assertEqual(self.sol.reorderLogFiles(input), expected_output)
 
 
+    def test_spaces(self):
+        input = ["j mo", "5 m w", "g 07", "o 2 0", "t q h"]
+        expected_output = ["5 m w","j mo","t q h","g 07","o 2 0"]
+
+        self.assertEqual(self.sol.reorderLogFiles(input), expected_output)
+
 if __name__ == "__main__":
     unittest.main()
