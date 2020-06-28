@@ -34,7 +34,19 @@ from typing import List
 
 class Solution:
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
-        pass
+        letter_logs = []
+        digit_logs = []
+        for log in logs:
+            if log.split(" ")[1].isalpha():
+                letter_logs.append(log)
+            else:
+                digit_logs.append(log)
+        # print(letter_logs)
+        # print(digit_logs)
+
+        output = sorted(letter_logs, key=lambda x: x.split(" ")[1]+ x.split(" ")[0])
+        output.extend(digit_logs)
+        return output
 
 class Tests(unittest.TestCase):
     sol = Solution()
