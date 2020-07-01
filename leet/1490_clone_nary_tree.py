@@ -47,4 +47,27 @@ from collections import deque
 
 class Solution:
     def cloneTree(self, root: 'Node') -> 'Node':
-        pass
+        self.traverse_tree(root)
+
+    # DFS
+    def traverse_tree(self, node: 'Node') -> 'Node':
+        # pre-order
+        # print(node.val)
+
+        for child in node.children:
+            self.traverse_tree(child)
+        # post-order
+        # print(node.val)
+
+    # BFS
+#     def traverse_tree(self, node: 'Node') -> 'Node':
+
+#         q = deque()
+#         q.append(node)
+
+#         while q:
+#             curr = q.popleft()
+#             print(curr.val)
+#             for child in curr.children:
+#                 q.append(child)
+
