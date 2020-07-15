@@ -43,31 +43,40 @@ class Node:
         self.val = val
         self.children = children if children is not None else []
 """
+
 from collections import deque
+
+# REF: Basic traversals (printing not cloning, for debugging)
+def traverse_tree_dfs(self, node: 'Node') -> 'Node':
+    # pre-order
+    # print(node.val)
+
+    for child in node.children:
+        self.traverse_tree(child)
+    # post-order
+    # print(node.val)
+
+def traverse_tree_bfs(self, node: 'Node') -> 'Node':
+
+    q = deque()
+    q.append(node)
+
+    while q:
+        curr = q.popleft()
+        print(curr.val)
+        for child in curr.children:
+            q.append(child)
+
 
 class Solution:
     def cloneTree(self, root: 'Node') -> 'Node':
-        self.traverse_tree(root)
+        new_root = Node(root.val)
+        self.traverse_and_clone_tree(root, new_root)
+        return new_root
 
-    # DFS
-    def traverse_tree(self, node: 'Node') -> 'Node':
-        # pre-order
-        # print(node.val)
+    def traverse_and_clone_tree(self, node: 'Node', clone: 'Node') -> None:
 
         for child in node.children:
-            self.traverse_tree(child)
-        # post-order
-        # print(node.val)
-
-    # BFS
-#     def traverse_tree(self, node: 'Node') -> 'Node':
-
-#         q = deque()
-#         q.append(node)
-
-#         while q:
-#             curr = q.popleft()
-#             print(curr.val)
-#             for child in curr.children:
-#                 q.append(child)
-
+            child_clone = Node(child.val)
+            clone.children.append(child_clone)
+            self.traverse_and_clone_tree(child, child_clone)
