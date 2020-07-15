@@ -70,6 +70,9 @@ def traverse_tree_bfs(self, node: 'Node') -> 'Node':
 
 class Solution:
     def cloneTree(self, root: 'Node') -> 'Node':
+        if not root:
+            return None
+
         new_root = Node(root.val)
         self.traverse_and_clone_tree(root, new_root)
         return new_root
